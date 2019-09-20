@@ -1,0 +1,32 @@
+<h1>Employees</h1>
+
+<p>This component provides the employees details.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Employer id</th>
+      <th>Name (C)</th>
+      <th>Id No (F)</th>
+      <th>Expiry Date</th>
+      <th>Position</th>
+      <th>Salary (C)</th>
+      <th>Sales Target (F)</th>
+      <th>Other Allowances</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.dateFormatted }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+      <td>{{ forecast.dateFormatted }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>

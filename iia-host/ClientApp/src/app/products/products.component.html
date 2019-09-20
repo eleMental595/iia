@@ -1,0 +1,34 @@
+<h1>Products</h1>
+
+<p>This component provides all the products.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Product id (C)</th>
+      <th>Name(F)</th>
+      <th>Name in Arabic</th>
+      <th>Unit</th>
+      <th>Selling price</th>
+      <th>Cost</th>
+      <th>Expiry date</th>
+      <th>Batch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.dateFormatted }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+      <td>{{ forecast.dateFormatted }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>

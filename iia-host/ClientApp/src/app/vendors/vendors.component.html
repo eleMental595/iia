@@ -1,0 +1,26 @@
+<h1>vendors</h1>
+
+<p>This component provides the vendors details.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Vendors id</th>
+      <th>Name (C)</th>
+      <th>Name in Arabic (F)</th>
+      <th>Vat.Reg.No</th>
+      <th>Contact Number (C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.dateFormatted }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>

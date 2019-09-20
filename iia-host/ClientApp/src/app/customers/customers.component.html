@@ -1,0 +1,28 @@
+<h1>Customers</h1>
+
+<p>This component provides the customers details.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Customer id</th>
+      <th>Name (C)</th>
+      <th>Name in Arabic (F)</th>
+      <th>Vat.Reg.No</th>
+      <th>Contact Number (C)</th>
+      <th>Sales Person (C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.dateFormatted }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>

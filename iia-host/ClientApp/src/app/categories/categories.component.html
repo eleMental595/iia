@@ -1,0 +1,20 @@
+<h1>Categories</h1>
+
+<p>This component provides categories along with there Vat%.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Category Name</th>
+      <th>Vat % (C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.dateFormatted }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+    </tr>
+  </tbody>
+</table>
