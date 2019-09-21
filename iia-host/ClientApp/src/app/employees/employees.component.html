@@ -1,32 +1,81 @@
 <h1>Employees</h1>
 
 <p>This component provides the employees details.</p>
+<input id="createBtn" class="btn btn-addemployee" type="button" value="Add new employee" *ngIf="!loadComponent" (click)="addemployee()" />
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
+<div *ngIf="!loadComponent">
+  <table class='table table-striped' *ngIf="forecasts">
+    <thead>
+      <tr>
+        <th>Employer id</th>
+        <th>Name (C)</th>
+        <th>Id No (F)</th>
+        <th>Expiry Date</th>
+        <th>Position</th>
+        <th>Salary (C)</th>
+        <th>Sales Target (F)</th>
+        <th>Other Allowances</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of forecasts">
+        <td>{{ forecast.dateFormatted }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+        <td>{{ forecast.dateFormatted }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<table class='table table-striped' *ngIf="forecasts">
-  <thead>
+<div class="child-component" *ngIf="loadComponent">
+  <table class='table table-striped'>
     <tr>
-      <th>Employer id</th>
-      <th>Name (C)</th>
-      <th>Id No (F)</th>
-      <th>Expiry Date</th>
-      <th>Position</th>
-      <th>Salary (C)</th>
-      <th>Sales Target (F)</th>
-      <th>Other Allowances</th>
+      <td>Employer id</td>
+      <td align="right"><input id="txtEmployer id" type="text" /></td>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.dateFormatted }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
-      <td>{{ forecast.dateFormatted }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr>
+      <td>Name</td>
+      <td align="right"><input id="txtName" type="text" /></td>
     </tr>
-  </tbody>
-</table>
+    <tr>
+      <td>Id No</td>
+      <td align="right"><input id="txtId No" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Expiry date</td>
+      <td align="right"><input id="txtExpiry date" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Position</td>
+      <td align="right"><input id="txtPosition" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Salary</td>
+      <td align="right"><input id="txtSalary" type="text" /></td>
+    </tr>
+    <tr>
+      <td>sales Target</td>
+      <td align="right"><input id="txtSales Target" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Other Allowance</td>
+      <td align="right"><input id="txtOther Allowance" type="text" /></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="right">
+        <input id="btnSubmit" class="btn btn-submit-cancel" type="button" value="Submit" />
+        <input id="btnCancel" class="btn btn-submit-cancel" type="button" value="Cancel" (click)="cancel()" />
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+

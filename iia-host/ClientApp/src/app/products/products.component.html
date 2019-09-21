@@ -1,34 +1,86 @@
 <h1>Products</h1>
 
 <p>This component provides all the products.</p>
+<input id="createBtn" class="btn btn-addproduct" type="button" value="Add new product" *ngIf="!loadComponent" (click)="addproduct()" />
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
+<div *ngIf="!loadComponent">
+  <table class='table table-striped' *ngIf="forecasts">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Product id (C)</th>
+        <th>Name(F)</th>
+        <th>Name in Arabic</th>
+        <th>Unit</th>
+        <th>Selling price</th>
+        <th>Cost</th>
+        <th>Expiry date</th>
+        <th>Batch</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of forecasts">
+        <td>{{ forecast.dateFormatted }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+        <td>{{ forecast.dateFormatted }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+        <td>{{ forecast.summary }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<table class='table table-striped' *ngIf="forecasts">
-  <thead>
+<div class="child-component" *ngIf="loadComponent">
+  <table class='table table-striped'>
     <tr>
-      <th>Category</th>
-      <th>Product id (C)</th>
-      <th>Name(F)</th>
-      <th>Name in Arabic</th>
-      <th>Unit</th>
-      <th>Selling price</th>
-      <th>Cost</th>
-      <th>Expiry date</th>
-      <th>Batch</th>
+      <td>Category</td>
+      <td align="right"><input id="txtCategory" type="text" /></td>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.dateFormatted }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
-      <td>{{ forecast.dateFormatted }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr>
+      <td>Product id</td>
+      <td align="right"><input id="txtProduct id" type="text" /></td>
     </tr>
-  </tbody>
-</table>
+    <tr>
+      <td>Name</td>
+      <td align="right"><input id="txtName" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Name in Arabic</td>
+      <td align="right"><input id="txtName in Arabic" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Unit</td>
+      <td align="right"><input id="txtUnit" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Selling Price</td>
+      <td align="right"><input id="txtSelling Price" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Cost</td>
+      <td align="right"><input id="txtCost" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Expiry date</td>
+      <td align="right"><input id="txtExpiry date" type="text" /></td>
+    </tr>
+    <tr>
+    <td>Batch</td>
+    <td align="right"><input id="txtBatch" type="text" /></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="right">
+        <input id="btnSubmit" class="btn btn-submit-cancel" type="button" value="Submit" />
+        <input id="btnCancel" class="btn btn-submit-cancel" type="button" value="Cancel" (click)="cancel()" />
+      </td>
+    </tr>
+  </table>
+</div>
+
+

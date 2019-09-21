@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-customers',
-  templateUrl: './customers.component.html'
+  templateUrl: './customers.component.html',
+  styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent {
   public forecasts: WeatherForecast[];
@@ -13,7 +14,17 @@ export class CustomersComponent {
       this.forecasts = result;
     }, error => console.error(error));
   }
+  public loadComponent = false;
+
+  addCustomer() {
+    this.loadComponent = !this.loadComponent;
+  }
+
+  cancel() {
+    this.loadComponent = !this.loadComponent;
+  }
 }
+
 
 interface WeatherForecast {
   dateFormatted: string;

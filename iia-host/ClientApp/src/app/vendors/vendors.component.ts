@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-vendors',
-  templateUrl: './vendors.component.html'
+  templateUrl: './vendors.component.html',
+  styleUrls: ['./vendors.component.css']
+
 })
 export class VendorsComponent {
   public forecasts: WeatherForecast[];
@@ -13,7 +15,18 @@ export class VendorsComponent {
       this.forecasts = result;
     }, error => console.error(error));
   }
+  public loadComponent = false;
+
+  addVendor() {
+    this.loadComponent = !this.loadComponent;
+  }
+
+  cancel() {
+    this.loadComponent = !this.loadComponent;
+  }
 }
+
+
 
 interface WeatherForecast {
   dateFormatted: string;
