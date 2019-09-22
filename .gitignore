@@ -1,1 +1,6 @@
 ﻿/.vs/iia/v16
+/iia.CategoryService/obj/Debug/netstandard2.0
+/iia.CategoryService/obj
+/iia.contracts/obj
+/services/iia.DataService/bin/Debug/netstandard2.0
+/services/iia.DataService/obj/Debug/netstandard2.0
