@@ -1,0 +1,68 @@
+<h1>Customers</h1>
+
+<p>This component provides the customers details.</p>
+<input id="createBtn" class="btn btn-addCustomer" type="button" value="Add new Customer" *ngIf="!loadComponent" (click)="addCustomer()" />
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+<div *ngIf="!loadComponent">
+  <table class='table table-striped' *ngIf="forecasts">
+    <thead>
+      <tr>
+        <th>Customer id</th>
+        <th>Name (C)</th>
+        <th>Name in Arabic (F)</th>
+        <th>Vat.Reg.No</th>
+        <th>Contact Number (C)</th>
+        <th>Sales Person (C)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of forecasts">
+        <td>{{ forecast.dateFormatted }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="child-component" *ngIf="loadComponent">
+  <table class='table table-striped'>
+    <tr>
+      <td>Customer id</td>
+      <td align="right"><input id="txtCustomer id" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td align="right"><input id="txtName" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Name in Arabic</td>
+      <td align="right"><input id="txtName in Arabic"  type="text" /></td>
+    </tr>
+    <tr>
+      <td>Vat.Reg.No</td>
+      <td align="right"><input id="txtVat.Reg.No" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Contact Number</td>
+      <td align="right"><input id="txtContact Number" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Sales Person</td>
+      <td align="right"><input id="txtSales Person" type="text" /></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td align="right">
+      <input id="btnSubmit" class="btn btn-submit-cancel" type="button" value="Submit" />
+      <input id="btnCancel" class="btn btn-submit-cancel" type="button" value="Cancel" (click)="cancel()" />
+    </td>
+    </tr>
+  </table>
+</div>
+
+
