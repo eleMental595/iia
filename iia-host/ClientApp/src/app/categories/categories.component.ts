@@ -23,8 +23,14 @@ export class CategoriesComponent{
     this.loadComponent = !this.loadComponent;    
   }
 
-  cancel() {
-    this.loadComponent = !this.loadComponent;
+  onSubmit(form: any): void {
+    console.log('you submitted value:', form);
+    this.loadComponent = !this.loadComponent; 
+  }
+
+  onCancel(){
+    console.log("cancel btn clicked");
+  this.loadComponent = !this.loadComponent;
   }
 }
 
