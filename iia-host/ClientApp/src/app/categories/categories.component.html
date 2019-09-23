@@ -3,9 +3,9 @@
 <p>This component provides categories along with there Vat%.</p>
 <input id="createBtn" class="btn btn-addCategory" type="button" value="Add new category" *ngIf="!loadComponent" (click)="addCategory()" />
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
-<div *ngIf="!loadComponent">
-  <table class='table table-striped' *ngIf="forecasts">
+<p *ngIf="!categories"><em>Loading...</em></p>
+<div>
+  <table class='table table-striped' *ngIf="categories">
     <thead>
       <tr>
         <th>Category Name</th>
@@ -13,32 +13,34 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let forecast of forecasts">
-        <td>{{ forecast.dateFormatted }}</td>
-        <td>{{ forecast.temperatureC }}</td>
+      <tr *ngFor="let category of categories">
+        <td>{{ category.category_Name }}</td>
+        <td>{{ category.vat }}</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="child-component" *ngIf="loadComponent">
-  <table class='table table-striped'>
-    <tr>
-      <td>Category Name</td>
-      <td align="right"><input id="txtCategory" type="text" /></td>
-    </tr>
-    <tr>
-      <td>Vat %</td>
-      <td align="right"><input id="txtVat" type="text" /></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td align="right">
-        <input id="btnSubmit" class="btn btn-submit-cancel" type="button" value="Submit" />
-        <input id="btnCancel" class="btn btn-submit-cancel" type="button" value="Cancel" (click)="cancel()" />
-      </td>
-    </tr>
-  </table>
+<div class="popup-wrapper" *ngIf="loadComponent">
+  <div class="child-component">
+    <table class='table table-striped'>
+      <tr>
+        <td>Category Name</td>
+        <td align="right"><input id="txtCategory" type="text" /></td>
+      </tr>
+      <tr>
+        <td>Vat %</td>
+        <td align="right"><input id="txtVat" type="text" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td align="right">
+          <input id="btnSubmit" class="btn btn-submit-cancel" type="button" value="Submit" />
+          <input id="btnCancel" class="btn btn-submit-cancel" type="button" value="Cancel" (click)="cancel()" />
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 
