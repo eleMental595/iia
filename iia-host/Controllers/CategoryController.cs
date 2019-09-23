@@ -18,7 +18,7 @@ namespace iia_host.Controllers
             _categoryService = categoryService;
         }
 
-        [HttpGet("Categories")]
+        [HttpGet]
         public async Task<IActionResult> GetCategories()
         {
             var result = await _categoryService.GetCategoriesAsync();

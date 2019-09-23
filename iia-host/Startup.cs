@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MySql.Data.EntityFrameworkCore.Extensions;
 
 namespace iia_host
 {
@@ -26,6 +28,9 @@ namespace iia_host
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options => options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter { CamelCaseText = true }));
 
+            services.AddEntityFrameworkMySQL().AddDbContext<DataContext>();
+
+            services.AddTransient<DbContext, DataContext>();
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<ICategoryService, CategoryService>();
 

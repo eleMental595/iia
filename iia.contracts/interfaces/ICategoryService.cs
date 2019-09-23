@@ -8,7 +8,7 @@ namespace iia.contracts.interfaces
 {
     public interface ICategoryService
     {
-        Task<Categories> GetCategoriesAsync();
+        Task<List<Categories>> GetCategoriesAsync();
 
         Task AddCategory(CategoryRequest categoryRequest);
 
