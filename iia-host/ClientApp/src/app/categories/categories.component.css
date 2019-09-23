@@ -3,8 +3,10 @@ body {
 
 .btn {
   float: right;
-  display: block;  
-  border-radius:20px;  
+  display: block;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  margin-left:5px;
 }
 
 .btn-addCategory {
@@ -34,5 +36,28 @@ body {
 .child-component {
   background: #fff;
   padding: 16px;
+  width: 400px;
   box-shadow: 2px 2px 10px -2px;
 }
+
+.form-ChildComponent{
+  display: flex;
+  justify-content: center;  
+  flex-direction: column;
+}
+
+.field{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.field-button{
+  display:block;
+  justify-content: space-between;
+}
+
+.label{
+  font-weight:bold;
+}
+
