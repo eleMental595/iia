@@ -11,12 +11,10 @@ namespace iia.CategoryService
     public class CategoryService : ICategoryService
     {
         private IDataService _dataService;
-        private DataContext _dataContext;
 
-        public CategoryService(IDataService dataService, DataContext dataContext)
+        public CategoryService(IDataService dataService)
         {
             _dataService = dataService;
-            _dataContext = dataContext;
         }
 
         public Task AddCategory(CategoryRequest categoryRequest)

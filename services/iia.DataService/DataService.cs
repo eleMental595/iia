@@ -17,13 +17,6 @@ namespace iia.DataService
             _dataContext = dataContext;
         }
 
-        public List<T> GetTables<T>(ComponentType componentType)
-        {
-            var result = _dataContext.GetType().GetProperty(componentType.ToString()).GetValue(_dataContext);
-            return (List<T>)result;
-            //var result = _dataContext.Categories.ToList();
-            //return result.Cast<T>().ToList();
-        }
 
         public async Task<TResult> GetResults<TResult>(Func<DataContext, Task<TResult>> func)
         {
