@@ -38,7 +38,7 @@ export class ProductsComponent {
   }
 
   toggleLoadBatchEntry() {
-    this.loadBatchEntry = !loadBatchEntry;
+    this.loadBatchEntry = !this.loadBatchEntry;
   }
 
 }
