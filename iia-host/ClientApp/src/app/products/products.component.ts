@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Category, CategoryResponse, Unit } from '../shared/shared.config';
 
 @Component({
   selector: 'app-products',
@@ -8,11 +9,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsComponent {
   public forecasts: WeatherForecast[];
+  public unit = Unit;
+  public categories: Category[];
+  public loadBatchEntry = true;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    http.get<CategoryResponse>(baseUrl + 'api/Category').subscribe(result => {
+      this.categories = result.data;
+    }, error => console.error(error));
     http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
       this.forecasts = result;
-    }, error => console.error(error));
+    }, error => console.error(error));   
   }
   public loadComponent = false;
 
@@ -30,6 +37,10 @@ export class ProductsComponent {
     this.loadComponent = !this.loadComponent;
   }
 
+  toggleLoadBatchEntry() {
+    this.loadBatchEntry = !loadBatchEntry;
+  }
+
 }
 
 
@@ -39,3 +50,5 @@ interface WeatherForecast {
   temperatureF: number;
   summary: string;
 }
+
+

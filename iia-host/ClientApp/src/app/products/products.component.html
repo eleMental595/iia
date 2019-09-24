@@ -42,10 +42,12 @@
 
       <div class="field">
         <label class="label" for="txtCategory">Category</label>
-        <input type="text"
-               id="txtCategory"
-               placeholder=""
-               name="category" ngModel>
+        <select class="input-box" id="txtCategory" [(ngModel)]="selectedCategory" name="category">
+          <option style="display:none">
+          <option [value]="category.category_Name" *ngFor="let category of categories">
+            {{category.category_Name}}
+          </option>
+        </select>
       </div>
       <div class="field">
         <label class="label" for="txtproduct id">product id</label>
@@ -70,10 +72,12 @@
       </div>
       <div class="field">
         <label class="label" for="txtUnit">Unit</label>
-        <input type="text"
-               id="txtUnit"
-               placeholder=""
-               name="Unit" ngModel>
+        <select id="txtUnit" [(ngModel)]="selectedUnit" name="Unit">
+          <option style="display:none">
+          <option [value]="o" *ngFor="let o of unit">
+            {{o}}
+          </option>
+        </select>
       </div>
       <div class="field">
         <label class="label" for="txtCost">Cost</label>
@@ -83,20 +87,19 @@
                name="Cost" ngModel>
       </div>
       <div class="field">
-        <label class="label" for="txtSelling Price">Selling Price</label>
+        <label class="label" for="txtSellingPrice">Selling Price</label>
         <input type="text"
-               id="txtSelling Price"
+               id="txtSellingPrice"
                placeholder=""
-               name="Selling Price" ngModel>
+               name="SellingPrice" ngModel>
       </div>
       <div class="field">
-        <label class="label" for="txtExpiry date">Expiry date</label>
-        <input type="text"
-               id="txtExpiry date"
-               placeholder=""
-               name="Expiry date" ngModel>
+        <label class="label" for="txtExpiryDate">Expiry date</label>
+        <div>
+          <input class="check-box" type="checkbox" name="ExpiryDate" [(ngModel)]="loadBatchEntry">
+        </div>
       </div>
-      <div class="field">
+      <div class="field" *ngIf="loadBatchEntry">
         <label class="label" for="txtBatch">Batch</label>
         <input type="text"
                id="txtBatch"
