@@ -14,12 +14,6 @@ body {
   margin-bottom: 10px;
 }
 
-.btn-submit-cancel {
-  background-color: white;
-  margin-right: 10px;
-}
-
-
 .popup-wrapper {
   position: fixed;
   z-index: 1000;

@@ -4,7 +4,7 @@
 <input id="createBtn" class="btn btn-addproduct" type="button" value="Add new product" *ngIf="!loadComponent" (click)="addproduct()" />
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
-<div *ngIf="!loadComponent">
+<div>
   <table class='table table-striped' *ngIf="forecasts">
     <thead>
       <tr>
@@ -29,58 +29,87 @@
         <td>{{ forecast.temperatureC }}</td>
         <td>{{ forecast.temperatureF }}</td>
         <td>{{ forecast.summary }}</td>
-        <td>{{ forecast.summary }}</td>
+        <td>{{forecast.summary }}</td>
       </tr>
     </tbody>
   </table>
 </div>
+<div class="popup-wrapper" *ngIf="loadComponent">
+  <div class="child-component">
+    <form #f="ngForm"
+          (ngSubmit)="onSubmit(f.value)"
+          class="form-ChildComponent">
 
-<div class="child-component" *ngIf="loadComponent">
-  <table class='table table-striped'>
-    <tr>
-      <td>Category</td>
-      <td align="right"><input id="txtCategory" type="text" /></td>
-    </tr>
-    <tr>
-      <td>Product id</td>
-      <td align="right"><input id="txtProduct id" type="text" /></td>
-    </tr>
-    <tr>
-      <td>Name</td>
-      <td align="right"><input id="txtName" type="text" /></td>
-    </tr>
-    <tr>
-      <td>Name in Arabic</td>
-      <td align="right"><input id="txtName in Arabic" type="text" /></td>
-    </tr>
-    <tr>
-      <td>Unit</td>
-      <td align="right"><input id="txtUnit" type="text" /></td>
-    </tr>
-    <tr>
-      <td>Selling Price</td>
-      <td align="right"><input id="txtSelling Price" type="text" /></td>
-    </tr>
-    <tr>
-      <td>Cost</td>
-      <td align="right"><input id="txtCost" type="text" /></td>
-    </tr>
-    <tr>
-      <td>Expiry date</td>
-      <td align="right"><input id="txtExpiry date" type="text" /></td>
-    </tr>
-    <tr>
-    <td>Batch</td>
-    <td align="right"><input id="txtBatch" type="text" /></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td align="right">
-        <input id="btnSubmit" class="btn btn-submit-cancel" type="button" value="Submit" />
-        <input id="btnCancel" class="btn btn-submit-cancel" type="button" value="Cancel" (click)="cancel()" />
-      </td>
-    </tr>
-  </table>
+      <div class="field">
+        <label class="label" for="txtCategory">Category</label>
+        <input type="text"
+               id="txtCategory"
+               placeholder=""
+               name="category" ngModel>
+      </div>
+      <div class="field">
+        <label class="label" for="txtproduct id">product id</label>
+        <input type="text"
+               id="txtproduct id"
+               placeholder=""
+               name="Product id" ngModel>
+      </div>
+      <div class="field">
+        <label class="label" for="txtName">Name</label>
+        <input type="text"
+               id="txtName"
+               placeholder=""
+               name="Name" ngModel>
+      </div>
+      <div class="field">
+        <label class="label" for="txtName in Arabic">Name in Arabic</label>
+        <input type="text"
+               id="txtName in Arabic"
+               placeholder=""
+               name="Name in Arabic" ngModel>
+      </div>
+      <div class="field">
+        <label class="label" for="txtUnit">Unit</label>
+        <input type="text"
+               id="txtUnit"
+               placeholder=""
+               name="Unit" ngModel>
+      </div>
+      <div class="field">
+        <label class="label" for="txtCost">Cost</label>
+        <input type="text"
+               id="txtCost"
+               placeholder=""
+               name="Cost" ngModel>
+      </div>
+      <div class="field">
+        <label class="label" for="txtSelling Price">Selling Price</label>
+        <input type="text"
+               id="txtSelling Price"
+               placeholder=""
+               name="Selling Price" ngModel>
+      </div>
+      <div class="field">
+        <label class="label" for="txtExpiry date">Expiry date</label>
+        <input type="text"
+               id="txtExpiry date"
+               placeholder=""
+               name="Expiry date" ngModel>
+      </div>
+      <div class="field">
+        <label class="label" for="txtBatch">Batch</label>
+        <input type="text"
+               id="txtBatch"
+               placeholder=""
+               name="Batch" ngModel>
+      </div>
+      <div class="field-button">
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" class="btn" (click)="onCancel()"> Cancel </button>
+      </div>
+    </form>
+  </div>
 </div>
+
 
 
