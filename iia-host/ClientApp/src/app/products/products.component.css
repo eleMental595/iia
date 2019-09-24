@@ -5,6 +5,8 @@ body {
   float: right;
   display: block;
   border-radius: 20px;
+  background-color: #f2f2f2;
+  margin-left: 5px;
 }
 
 .btn-addproduct {
@@ -12,12 +14,43 @@ body {
   margin-bottom: 10px;
 }
 
-.btn-submit-cancel {
-  background-color: white;
-  margin-right: 10px;
+.popup-wrapper {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .child-component {
-  position: absolute;
+  background: #fff;
+  padding: 16px;
   width: 400px;
+  box-shadow: 2px 2px 10px -2px;
+}
+
+.form-ChildComponent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.field-button {
+  display: block;
+  justify-content: space-between;
+}
+
+.label {
+  font-weight: bold;
 }
