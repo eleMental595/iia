@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj": {}
+    "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj": {
+    "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj",
         "projectName": "iia.contracts",
-        "projectPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj",
+        "projectPath": "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\obj\\",
+        "outputPath": "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\iia.contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\ProgramData\\Xamarin\\NuGet\\",
@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.6.0, )"
             }
           },
           "imports": [
@@ -58,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj": {
+    "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj",
         "projectName": "iia.DataService",
-        "projectPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj",
+        "projectPath": "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\obj\\",
+        "outputPath": "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\services\\iia.DataService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\ProgramData\\Xamarin\\NuGet\\",
@@ -86,8 +90,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj": {
-                "projectPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj"
+              "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj": {
+                "projectPath": "C:\\Users\\user\\Source\\Repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj"
               }
             }
           }

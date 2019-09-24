@@ -20,7 +20,13 @@ export class ProductsComponent {
     this.loadComponent = !this.loadComponent;
   }
 
-  cancel() {
+  onSubmit(form: any): void {
+    console.log('you submitted value:', form);
+    this.loadComponent = !this.loadComponent;
+  }
+
+  onCancel() {
+    console.log("cancel btn clicked");
     this.loadComponent = !this.loadComponent;
   }
 
