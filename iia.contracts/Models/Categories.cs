@@ -11,7 +11,7 @@ namespace iia.contracts.Models
     {
         [Key]
         [Column("category_id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Column("category_name")]
         public string Category_Name { get; set; }
         [Column("vat")]

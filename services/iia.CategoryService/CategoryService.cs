@@ -23,7 +23,9 @@ namespace iia.CategoryService
              var result = await _dataService.GetResults<EntityEntry<Categories>>(async (dataContext) =>
              {
                  Categories NewCategory = new Categories(){Category_Name = categoryRequest.Category, Vat = categoryRequest.Vat};
-                 return await dataContext.Categories.AddAsync(NewCategory);
+                 var category = await dataContext.Categories.AddAsync(NewCategory);
+                 await dataContext.SaveChangesAsync();
+                 return category;
              });
 
              return result.Entity;
