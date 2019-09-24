@@ -26,9 +26,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\purchase\purchase.component.ts" />
+    <None Remove="ClientApp\src\app\sales\sales.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\iia.CategoryService\iia.CategoryService.csproj" />
     <ProjectReference Include="..\iia.contracts\iia.contracts.csproj" />
     <ProjectReference Include="..\services\iia.DataService\iia.DataService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\purchase\purchase.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\sales\sales.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
