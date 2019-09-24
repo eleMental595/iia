@@ -51,7 +51,24 @@ body {
   justify-content: space-between;
 }
 
+.field-cross-image {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.cross-img{
+  width:15px;
+  height:10px
+}
+
 .label{
   font-weight:bold;
+}
+
+tr:hover {
+  background-color: #ccc !important;
+  cursor: pointer;
 }
 

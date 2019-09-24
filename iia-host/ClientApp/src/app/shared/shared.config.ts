@@ -1,6 +1,7 @@
 export interface Category {
+  id: number
   category_Name: string;
-  vat: number;
+  vat: string;
 }
 
 export interface CategoriesResponse {
