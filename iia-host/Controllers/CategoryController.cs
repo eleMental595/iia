@@ -32,5 +32,12 @@ namespace iia_host.Controllers
             var result = await _categoryService.AddCategory(request);
             return Ok(result);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategories([FromBody] CategoryRequest request)
+        {
+            var result = await _categoryService.UpdateCategory(request);
+            return Ok(result);
+        }
     }
 }

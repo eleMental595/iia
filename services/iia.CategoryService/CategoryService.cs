@@ -44,10 +44,28 @@ namespace iia.CategoryService
              });
         }
 
-        public Task UpdateCategory(string categoryId, CategoryRequest categoryRequest)
-        {
-            throw new NotImplementedException();
-        }
+ public async Task<Categories> UpdateCategory(CategoryRequest categoryRequest)
+       {
+           var result = await _dataService.GetResults<EntityEntry<Categories>>(async (dataContext) =>
+           {
+               Categories CategoryToUpdate = new Categories() { Category_Name = categoryRequest.Category, Vat = categoryRequest.Vat };
+               var entity = await dataContext.Categories.FindAsync(categoryRequest.Id);
+               if (entity != null)
+               {
+                   entity.Category_Name = CategoryToUpdate.Category_Name;
+                   entity.Vat = CategoryToUpdate.Vat;
+                   var updatedCategory = dataContext.Categories.Update(entity);
+                   await dataContext.SaveChangesAsync();
+                   return updatedCategory;
+               }
+               else
+               {
+                   throw new Exception("Record not found");
+               }
+           });
+
+           return result.Entity;
+       }
 
     }
 }

@@ -12,7 +12,7 @@ namespace iia.contracts.interfaces
 
         Task<Categories> AddCategory(CategoryRequest categoryRequest);
 
-        Task UpdateCategory(string categoryId, CategoryRequest categoryRequest);
+        Task<Categories> UpdateCategory(CategoryRequest categoryRequest);
 
         Task DeleteCategory(string categoryId);
 

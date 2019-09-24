@@ -5088,37 +5088,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sperni\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/home/ameya/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sperni\\Source\\Repos\\Newiia\\iia\\services\\iia.DataService\\iia.DataService.csproj",
+      "projectUniqueName": "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj",
       "projectName": "iia.DataService",
-      "projectPath": "C:\\Users\\sperni\\Source\\Repos\\Newiia\\iia\\services\\iia.DataService\\iia.DataService.csproj",
-      "packagesPath": "C:\\Users\\sperni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sperni\\Source\\Repos\\Newiia\\iia\\services\\iia.DataService\\obj\\",
+      "projectPath": "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj",
+      "packagesPath": "/home/ameya/.nuget/packages/",
+      "outputPath": "/home/ameya/Projects/iia/iia/services/iia.DataService/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\sperni\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/ameya/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\sperni\\Source\\Repos\\Newiia\\iia\\iia.contracts\\iia.contracts.csproj": {
-              "projectPath": "C:\\Users\\sperni\\Source\\Repos\\Newiia\\iia\\iia.contracts\\iia.contracts.csproj"
+            "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj": {
+              "projectPath": "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj"
             }
           }
         }
