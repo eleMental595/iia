@@ -13,24 +13,29 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let category of categories">
-        <td>{{ category.category_Name }}</td>
-        <td>{{ category.vat }}</td>
+      <tr *ngFor="let cat of categories" (click)="editCategory(cat)">
+        <th hidden>{{cat.id}}</th>
+        <td>{{ cat.category_Name }}</td>
+        <td>{{ cat.vat }}</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="popup-wrapper" *ngIf="loadComponent">
+<div class="popup-wrapper" *ngIf="loadComponent">  
   <div class="child-component">
+    <div class="field field-cross-image">
+      <img class="cross-img" src=".../../assets/images/crossImage.PNG" (click)="onCancel()" />
+    </div>
     <form #f="ngForm"
           (ngSubmit)="onSubmit(f.value)"
           class="form-ChildComponent">
-
       <div class="field">
         <label class="label" for="txtCategory">Category Name</label>
         <input type="text"
                id="txtCategory"
+               required
+               [(ngModel)]="model.category_Name"
                placeholder="ex: 'Ex, Electronics'"
                name="category" ngModel>
       </div>
@@ -38,14 +43,15 @@
         <label class="label" for="txtVat">Vat %</label>
         <input type="text"
                id="txtVat"
+               required
+               [(ngModel)]="model.vat"
                placeholder=" ex: 5%"
                name="vat" ngModel>
       </div>
       <div class="field-button">
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="btn" (click)="onCancel()"> Cancel </button>
-      </div>      
-    </form>   
+        <button type="submit" class="btn">{{ btnCreate ? 'Create' : 'Update' }}</button>
+      </div>
+    </form>
   </div>
 </div>
 
