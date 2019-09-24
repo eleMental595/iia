@@ -36,13 +36,11 @@ body {
 
 .form-ChildComponent {
   display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 
 .field {
   display: flex;
-  justify-content: space-between;
   margin-bottom: 5px;
 }
 
@@ -53,4 +51,13 @@ body {
 
 .label {
   font-weight: bold;
+  flex: 1;
+}
+
+input, select {
+  flex: 1 1 5%;
+}
+
+.check-box {
+  align-self: center;
 }

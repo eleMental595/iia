@@ -12,6 +12,8 @@ import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
 import { VendorsComponent } from './vendors/vendors.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+import { SalesComponent } from './sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -22,19 +24,27 @@ import { EmployeesComponent } from './employees/employees.component';
     ProductsComponent,
     CustomersComponent,
     VendorsComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    PurchaseComponent,
+    SalesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      {
+        path: 'home', component: HomeComponent,
+        children: [
+          { path: 'purchase', component: PurchaseComponent },
+          { path: 'sales', component: SalesComponent }
+        ]
+      },
       { path: 'categories', component: CategoriesComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'customers', component: CustomersComponent },
       { path: 'vendors', component: VendorsComponent },
-      { path: 'employees', component: EmployeesComponent }
+      { path: 'employees', component: EmployeesComponent }      
     ])
   ],
   providers: [],
