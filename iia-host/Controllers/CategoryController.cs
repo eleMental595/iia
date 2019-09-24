@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using iia.contracts.interfaces;
+using iia.contracts.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,13 @@ namespace iia_host.Controllers
         public async Task<IActionResult> GetCategories()
         {
             var result = await _categoryService.GetCategoriesAsync();
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddCategories([FromBody] CategoryRequest request)
+        {
+            var result = await _categoryService.AddCategory(request);
             return Ok(result);
         }
     }

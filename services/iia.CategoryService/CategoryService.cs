@@ -2,6 +2,7 @@
 using iia.contracts.Models;
 using iia.DataService;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,9 +18,15 @@ namespace iia.CategoryService
             _dataService = dataService;
         }
 
-        public Task AddCategory(CategoryRequest categoryRequest)
+        public async Task<Categories> AddCategory(CategoryRequest categoryRequest)
         {
-            throw new NotImplementedException();
+             var result = await _dataService.GetResults<EntityEntry<Categories>>(async (dataContext) =>
+             {
+                 Categories NewCategory = new Categories(){Category_Name = categoryRequest.Category, Vat = categoryRequest.Vat};
+                 return await dataContext.Categories.AddAsync(NewCategory);
+             });
+
+             return result.Entity;
         }
 
         public Task DeleteCategory(string categoryId)

@@ -10,7 +10,7 @@ namespace iia.contracts.interfaces
     {
         Task<List<Categories>> GetCategoriesAsync();
 
-        Task AddCategory(CategoryRequest categoryRequest);
+        Task<Categories> AddCategory(CategoryRequest categoryRequest);
 
         Task UpdateCategory(string categoryId, CategoryRequest categoryRequest);
 
