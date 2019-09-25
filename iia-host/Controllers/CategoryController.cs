@@ -39,5 +39,12 @@ namespace iia_host.Controllers
             var result = await _categoryService.UpdateCategory(request);
             return Ok(result);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteCategory([FromQuery] int Id)
+        {
+            await _categoryService.DeleteCategory(Id);
+            return Ok(string.Empty);
+        }
     }
 }
