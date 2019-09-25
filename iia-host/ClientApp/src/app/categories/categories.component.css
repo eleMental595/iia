@@ -1,19 +1,6 @@
 body {
 }
 
-.btn {
-  float: right;
-  display: block;
-  border-radius: 20px;
-  background-color: #f2f2f2;
-  margin-left:5px;
-}
-
-.btn-addCategory {
-  background-color: #f2f2f2;
-  margin-bottom: 10px;
-}
-
 .popup-wrapper {
   position: fixed;
   z-index: 1000;
@@ -28,10 +15,11 @@ body {
 }
 
 .child-component {
-  background: #fff;
+  background: #f8f6f6;  
   padding: 16px;
   width: 400px;
   box-shadow: 2px 2px 10px -2px;
+  border-radius: 15px;
 }
 
 .form-ChildComponent{
@@ -51,16 +39,11 @@ body {
   justify-content: space-between;
 }
 
-.field-cross-image {
+.field-cross-btn {
   display: flex;
   justify-content: flex-end;
   margin-top: -10px;
   margin-bottom: 20px;
-}
-
-.cross-img{
-  width:15px;
-  height:10px
 }
 
 .label{

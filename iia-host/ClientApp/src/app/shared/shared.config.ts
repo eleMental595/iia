@@ -4,6 +4,16 @@ export interface Category {
   vat: string;
 }
 
+export enum Status {
+  Success,
+  Failure
+}
+
+export interface ApiResponse {
+  data: any;
+  status: Status;
+}
+
 export interface CategoriesResponse {
   data: Category[];
 }
