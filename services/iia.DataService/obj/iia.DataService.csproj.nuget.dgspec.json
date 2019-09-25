@@ -1,28 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj": {}
+    "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj": {}
   },
   "projects": {
-    "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj": {
+    "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj",
         "projectName": "iia.contracts",
-        "projectPath": "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj",
-        "packagesPath": "/home/ameya/.nuget/packages/",
-        "outputPath": "/home/ameya/Projects/iia/iia/iia.contracts/obj/",
+        "projectPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/ameya/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,32 +62,36 @@
         }
       }
     },
-    "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj": {
+    "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj",
         "projectName": "iia.DataService",
-        "projectPath": "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj",
-        "packagesPath": "/home/ameya/.nuget/packages/",
-        "outputPath": "/home/ameya/Projects/iia/iia/services/iia.DataService/obj/",
+        "projectPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\iia.DataService.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\services\\iia.DataService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/ameya/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj": {
-                "projectPath": "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj"
+              "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj": {
+                "projectPath": "C:\\Users\\user\\source\\repos\\MyProject\\iia\\iia.contracts\\iia.contracts.csproj"
               }
             }
           }

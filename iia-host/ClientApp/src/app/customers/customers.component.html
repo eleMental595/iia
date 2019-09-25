@@ -1,12 +1,12 @@
 <h1>Customers</h1>
 
 <p>This component provides the customers details.</p>
-<input id="createBtn" class="btn btn-addCustomer" type="button" value="Add new Customer" *ngIf="!loadComponent" (click)="addCustomer()" />
+<input id="createBtn" class="btn btn-info" type="button" value="Add new Customer" *ngIf="!loadComponent" (click)="addCustomer()" />
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 <div>
-  <table class='table table-striped' *ngIf="forecasts">
-    <thead>
+  <table class='table'>
+    <thead class="thead-light">
       <tr>
         <th>Customer id</th>
         <th>Name (C)</th>
@@ -30,7 +30,11 @@
 </div>
 <div class="popup-wrapper" *ngIf="loadComponent">
   <div class="child-component">
-
+    <div class="field field-cross-btn">
+      <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <form #f="ngForm"
           (ngSubmit)="onSubmit(f.value)"
           class="form-ChildComponent">
@@ -77,9 +81,8 @@
                placeholder=""
                name="Sales Person" ngModel>
       </div>
-      <div class="field-button">
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="btn" (click)="onCancel()"> Cancel </button>
+      <div>
+        <button type="submit" class="btn btn-success btn-sm btn-block">Submit</button>        
       </div>
     </form>
   </div>

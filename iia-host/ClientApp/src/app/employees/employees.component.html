@@ -1,12 +1,12 @@
 <h1>Employees</h1>
 
 <p>This component provides the employees details.</p>
-<input id="createBtn" class="btn btn-addemployee" type="button" value="Add new employee" *ngIf="!loadComponent" (click)="addemployee()" />
+<input id="createBtn" class="btn btn-info" type="button" value="Add new employee" *ngIf="!loadComponent" (click)="addemployee()" />
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 <div>
-  <table class='table table-striped' *ngIf="forecasts">
-    <thead>
+  <table class='table'>
+    <thead class="thead-light">
       <tr>
         <th>Employer id</th>
         <th>Name (C)</th>
@@ -34,7 +34,11 @@
 </div>
 <div class="popup-wrapper" *ngIf="loadComponent">
   <div class="child-component">
-
+    <div class="field field-cross-btn">
+      <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <form #f="ngForm"
           (ngSubmit)="onSubmit(f.value)"
           class="form-ChildComponent">
@@ -95,13 +99,15 @@
                placeholder=""
                name="Other Allowance" ngModel>
       </div>
-      <div class="field-button">
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="btn" (click)="onCancel()"> Cancel </button>
+      <div>
+        <button type="submit" class="btn btn-success btn-sm btn-block">{{ btnCreate ? 'Create' : 'Update' }}</button>        
       </div>
     </form>
   </div>
 </div>
+
+
+
 
 
 
