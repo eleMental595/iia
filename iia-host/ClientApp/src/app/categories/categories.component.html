@@ -1,10 +1,12 @@
 <h1>Categories</h1>
 
 <p>This component provides categories along with there Vat%.</p>
-<input id="createBtn" class="btn btn-info" type="button" value="Add new category" *ngIf="!loadComponent" (click)="addCategory()" />
+<div class="wrapper-create-btn">
+  <input id="createBtn" class="btn btn-info" type="button" value="Add new category" [disabled]="loadComponent" (click)="addCategory()" />
+</div>
 
 <p *ngIf="!categories"><em>Loading...</em></p>
-<div>
+<div class="categories-table">
   <table class='table'>
     <thead class="thead-light">
       <tr>
@@ -52,7 +54,7 @@
       </div>
       <div>
         <button type="submit" class="btn btn-success btn-sm btn-block">{{ btnCreate ? 'Create' : 'Update' }}</button>
-        <button type="button" class="btn btn-danger btn-sm btn-block" *ngIf="!btnCreate" (click)="deleteCategory($event, cat)">Delete</button>
+        <button type="button" class="btn btn-danger btn-sm btn-block" *ngIf="!btnCreate" (click)="deleteCategory($event, model)">Delete</button>
       </div>
     </form>
   </div>
@@ -67,8 +69,7 @@
     </div>
     <form #f="ngForm"
           (ngSubmit)="onDelete(f.value)"
-          class="form-ChildComponent"
-          [(ngModel)]="model.id">
+          class="form-ChildComponent">
       <div>
         <label class="label"> Are you sure to delete this record ? This is an hard delete. Please confirm below </label>
       </div>

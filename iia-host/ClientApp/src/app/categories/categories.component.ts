@@ -65,8 +65,13 @@ export class CategoriesComponent {
     event.stopPropagation();
   }
 
-  onDelete(form: any): void {
-    
+  onDelete(form: Category): void {
+    this._url = this._baseUrl + 'api/Category/' + this.model.id;
+    this._http.delete<CategoryResponse>(this._url).subscribe(result => {
+      console.log(result.data);
+      this.getCategories();
+      this.loadDeletePopup = false;
+    }, error => console.error(error));
   }
 
   onCancel() {
