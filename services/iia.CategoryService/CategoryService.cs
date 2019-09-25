@@ -20,15 +20,15 @@ namespace iia.CategoryService
 
         public async Task<Categories> AddCategory(CategoryRequest categoryRequest)
         {
-             var result = await _dataService.GetResults<EntityEntry<Categories>>(async (dataContext) =>
-             {
-                 Categories NewCategory = new Categories(){Category_Name = categoryRequest.Category, Vat = categoryRequest.Vat};
-                 var category = await dataContext.Categories.AddAsync(NewCategory);
-                 await dataContext.SaveChangesAsync();
-                 return category;
-             });
+            var result = await _dataService.GetResults<EntityEntry<Categories>>(async (dataContext) =>
+            {
+                Categories NewCategory = new Categories() { Category_Name = categoryRequest.Category, Vat = categoryRequest.Vat };
+                var category = await dataContext.Categories.AddAsync(NewCategory);
+                await dataContext.SaveChangesAsync();
+                return category;
+            });
 
-             return result.Entity;
+            return result.Entity;
         }
 
         public Task DeleteCategory(string categoryId)
@@ -44,28 +44,41 @@ namespace iia.CategoryService
              });
         }
 
- public async Task<Categories> UpdateCategory(CategoryRequest categoryRequest)
-       {
-           var result = await _dataService.GetResults<EntityEntry<Categories>>(async (dataContext) =>
-           {
-               Categories CategoryToUpdate = new Categories() { Category_Name = categoryRequest.Category, Vat = categoryRequest.Vat };
-               var entity = await dataContext.Categories.FindAsync(categoryRequest.Id);
-               if (entity != null)
-               {
-                   entity.Category_Name = CategoryToUpdate.Category_Name;
-                   entity.Vat = CategoryToUpdate.Vat;
-                   var updatedCategory = dataContext.Categories.Update(entity);
-                   await dataContext.SaveChangesAsync();
-                   return updatedCategory;
-               }
-               else
-               {
-                   throw new Exception("Record not found");
-               }
-           });
+        public async Task<Categories> UpdateCategory(CategoryRequest categoryRequest)
+        {
+            var result = await _dataService.GetResults<EntityEntry<Categories>>(async (dataContext) =>
+            {
+                Categories CategoryToUpdate = new Categories() { Category_Name = categoryRequest.Category, Vat = categoryRequest.Vat };
+                var entity = await dataContext.Categories.FindAsync(categoryRequest.Id);
+                if (entity != null)
+                {
+                    entity.Category_Name = CategoryToUpdate.Category_Name;
+                    entity.Vat = CategoryToUpdate.Vat;
+                    var updatedCategory = dataContext.Categories.Update(entity);
+                    await dataContext.SaveChangesAsync();
+                    return updatedCategory;
+                }
+                else
+                {
+                    throw new Exception("Record not found");
+                }
+            });
 
-           return result.Entity;
-       }
+            return result.Entity;
+        }
+
+        public async Task DeleteCategory(int Id)
+        {
+            var result = await _dataService.GetResults<EntityEntry<Categories>>(async (dataContext) =>
+            {
+                Categories CategoryToDelete = new Categories() { Id = Id };
+                dataContext.Categories.Attach(CategoryToDelete);
+                var DeletedCategory = dataContext.Categories.Remove(CategoryToDelete);
+                await dataContext.SaveChangesAsync();
+                return DeletedCategory;
+            });
+        }
+
 
     }
 }

@@ -14,7 +14,7 @@ namespace iia.contracts.interfaces
 
         Task<Categories> UpdateCategory(CategoryRequest categoryRequest);
 
-        Task DeleteCategory(string categoryId);
+        Task DeleteCategory(int categoryId);
 
     }
 }
