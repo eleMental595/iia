@@ -49,6 +49,11 @@ body {
   flex: 1;
 }
 
+tr:hover {
+  background-color: #ccc !important;
+  cursor: pointer;
+}
+
 input, select {
   flex: 1 1 5%;
 }
@@ -56,3 +61,4 @@ input, select {
 .check-box {
   align-self: center;
 }
+
