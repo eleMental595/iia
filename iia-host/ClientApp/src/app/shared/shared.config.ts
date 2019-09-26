@@ -12,7 +12,7 @@ export interface Product {
   unit: string;
   selling_price: number;
   cost: number;
-  expiry_Date: Date;
+  expiry_Date: number;
   batch: string;
 }
 

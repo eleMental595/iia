@@ -47,13 +47,9 @@
   margin-bottom: 5px;
 }
 
-#popupComponent input {
-  flex: 1 1 5%;
-}
-
-#popupComponent select {
-  flex: 1 1 5%;
-}
+  .field select, .field label, .field input {
+    flex: 1 1 5%;
+  }
 
 .field-button {
   display: block;

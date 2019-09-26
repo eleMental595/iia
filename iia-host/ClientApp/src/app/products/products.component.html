@@ -5,13 +5,12 @@
   <input id="createBtn" class="btn btn-info" type="button" value="Add new product" [disabled]="loadComponent" (click)="addproduct()" />
 </div>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!products"><em>Loading...</em></p>
 <div class="response-table">
-  <table class='table' *ngIf="forecasts">
+  <table class='table' *ngIf="products">
     <thead class="thead-light">
       <tr>
         <th>Category</th>
-        <th>Product id (C)</th>
         <th>Name(F)</th>
         <th>Name in Arabic</th>
         <th>Unit</th>
@@ -22,16 +21,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let forecast of forecasts">
-        <td>{{ forecast.dateFormatted }}</td>
-        <td>{{ forecast.temperatureC }}</td>
-        <td>{{ forecast.temperatureF }}</td>
-        <td>{{ forecast.summary }}</td>
-        <td>{{ forecast.dateFormatted }}</td>
-        <td>{{ forecast.temperatureC }}</td>
-        <td>{{ forecast.temperatureF }}</td>
-        <td>{{ forecast.summary }}</td>
-        <td>{{forecast.summary }}</td>
+      <tr *ngFor="let product of products" (click)="editProduct(product)">
+        <th hidden>{{ product.id }}</th>
+        <td>{{ product.category }}</td>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.nameArabic }}</td>
+        <td>{{ product.unit }}</td>
+        <td>{{ product.sellingPrice }}</td>
+        <td>{{ product.cost }}</td>
+        <td>{{ product.expiryDate }}</td>
+        <td>{{product.batch }}</td>
       </tr>
     </tbody>
   </table>
@@ -46,10 +45,15 @@
     <form #f="ngForm"
           (ngSubmit)="onSubmit(f.value)"
           class="form-ChildComponent">
-
+      <div hidden class="field">
+        <input type="text"
+               id="txtId"
+               [(ngModel)]="model.id"
+               name="id" ngModel>
+      </div>
       <div class="field">
         <label class="label" for="txtCategory">Category</label>
-        <select class="input-box" id="txtCategory" [(ngModel)]="selectedCategory" name="category">
+        <select class="input-box" id="txtCategory" [(ngModel)]="model.category" name="category">
           <option style="display:none">
           <option [value]="category.category_Name" *ngFor="let category of categories">
             {{category.category_Name}}
@@ -57,29 +61,24 @@
         </select>
       </div>
       <div class="field">
-        <label class="label" for="txtproduct id">Product id</label>
-        <input type="text"
-               id="txtproductId"
-               placeholder=""
-               name="id" ngModel>
-      </div>
-      <div class="field">
         <label class="label" for="txtName">Name</label>
         <input type="text"
                id="txtName"
                placeholder=""
-               name="product_Name" ngModel>
+               [(ngModel)]="model.productName"
+               name="productName" ngModel>
       </div>
       <div class="field">
         <label class="label" for="txtName in Arabic">Name in Arabic</label>
         <input type="text"
                id="txtNameInArabic"
                placeholder=""
-               name="name_Arabic" ngModel>
+               [(ngModel)]="model.nameArabic"
+               name="nameArabic" ngModel>
       </div>
       <div class="field">
         <label class="label" for="txtUnit">Unit</label>
-        <select id="txtUnit" [(ngModel)]="selectedUnit" name="unit">
+        <select id="txtUnit" [(ngModel)]="model.unit" name="unit">
           <option style="display:none">
           <option [value]="o" *ngFor="let o of unit">
             {{o}}
@@ -91,6 +90,7 @@
         <input type="text"
                id="txtCost"
                placeholder=""
+               [(ngModel)]="model.cost"
                name="cost" ngModel>
       </div>
       <div class="field">
@@ -98,6 +98,7 @@
         <input type="text"
                id="txtSellingPrice"
                placeholder=""
+               [(ngModel)]="model.sellingPrice"
                name="sellingPrice" ngModel>
       </div>
       <div class="field">
@@ -111,10 +112,33 @@
         <input type="text"
                id="txtBatch"
                placeholder=""
+               [(ngModel)]="model.batch"
                name="batch" ngModel>
       </div>
       <div class="field-button">
-        <button type="submit" class="btn btn btn-success btn-sm btn-block">Submit</button>
+        <button type="submit" class="btn btn-success btn-sm btn-block">{{ btnCreate ? 'Create' : 'Update' }}</button>
+        <button type="button" class="btn btn-danger btn-sm btn-block" *ngIf="!btnCreate" (click)="deleteCategory($event, model)">Delete</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="popup-wrapper" *ngIf="loadDeletePopup">
+  <div class="child-component">
+    <div class="field field-cross-image">
+      <button type="button" class="close" aria-label="Close" (click)="onCancelDeletePopup()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form #f="ngForm"
+          (ngSubmit)="onDelete(f.value)"
+          class="form-ChildComponent">
+      <div>
+        <label class="label"> Are you sure to delete this record ? This is an hard delete. Please confirm below </label>
+      </div>
+      <div class="field-button">
+        <button type="submit" class="btn btn-success btn-sm btn-lg btn-block">Yes</button>
+        <button type="button" class="btn btn-danger btn-sm btn-lg btn-block" (click)="onCancelDeletePopup()">No</button>
       </div>
     </form>
   </div>

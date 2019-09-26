@@ -7,14 +7,17 @@ import { Product, Category, Unit, ApiResponse } from '../shared/shared.config';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
-  public forecasts: WeatherForecast[];
+export class ProductsComponent {  
   public unit = Unit;
   public categories: Category[];
   public products: Product[];
   public product: Product;
+  public model: Product;
+
   public loadBatchEntry = true;
   public loadComponent = false;
+  public loadDeletePopup = false;
+
   public btnCreate: boolean;
 
   private _baseUrl: string;
@@ -39,25 +42,53 @@ export class ProductsComponent {
   }
 
   addproduct() {
+    this.btnCreate = true;
+    this.emptyModel();
+    this.getCategories();
     this.loadComponent = !this.loadComponent;
   }
 
   onSubmit(form: any): void {
+    form.expiryDate = this.loadBatchEntry ? 1 : 0;
     console.log('you submitted value:', form);
+
     this._url = this._baseUrl + 'api/Product';
     if (this.btnCreate) {
       this._http.post<ApiResponse>(this._url, form).subscribe(result => {
         this.product = result.data;
-        this.getCategories();
+        this.getProducts();
       }, error => console.error(error));
     }
     else {
       this._http.put<ApiResponse>(this._url, form).subscribe(result => {
         this.product = result.data;
-        this.getCategories();
+        this.getProducts();
       }, error => console.error(error));
     }
     this.loadComponent = !this.loadComponent;
+  }
+
+  editProduct(product) {
+    this.btnCreate = false;
+    this.model = product;
+    this.getCategories();
+    this.loadComponent = !this.loadComponent;
+  }
+
+  deleteCategory(event, product) {
+    this.model = product;
+    this.loadDeletePopup = true;
+    this.loadComponent = !this.loadComponent;
+    event.stopPropagation();
+  }
+
+  onDelete(form: Category): void {
+    this._url = this._baseUrl + 'api/Product/' + this.model.id;
+    this._http.delete<ApiResponse>(this._url).subscribe(result => {
+      console.log(result.data);
+      this.getProducts();
+      this.loadDeletePopup = false;
+    }, error => console.error(error));
   }
 
   onCancel() {
@@ -69,14 +100,11 @@ export class ProductsComponent {
     this.loadBatchEntry = !this.loadBatchEntry;
   }
 
-}
+  emptyModel() {
+    this.model = {} as Product;
+  }
 
 
-interface WeatherForecast {
-  dateFormatted: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
 }
 
 

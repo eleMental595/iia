@@ -47,10 +47,10 @@ namespace iia.ProductService
                 {
                     entity.Category = productRequest.Category;
                     entity.Cost = productRequest.Cost;
-                    entity.Expiry_Date = productRequest.Expiry_Date;
-                    entity.Name_Arabic = productRequest.Name_Arabic;
-                    entity.Product_Name = productRequest.Product_Name;
-                    entity.Selling_price = productRequest.Selling_price;
+                    entity.ExpiryDate = productRequest.ExpiryDate;
+                    entity.NameArabic = productRequest.NameArabic;
+                    entity.ProductName = productRequest.ProductName;
+                    entity.SellingPrice = productRequest.SellingPrice;
                     entity.Unit = productRequest.Unit;
                     entity.Batch = productRequest.Batch;
                     var updatedProduct = dataContext.Products.Update(entity);

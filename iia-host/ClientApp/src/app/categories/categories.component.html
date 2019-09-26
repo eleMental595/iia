@@ -34,6 +34,12 @@
     <form #f="ngForm"
           (ngSubmit)="onSubmit(f.value)"
           class="form-ChildComponent">
+      <div hidden class="field">
+        <input type="text"
+               id="txtId"
+               [(ngModel)]="model.id"
+               name="id" ngModel>
+      </div>
       <div class="field">
         <label class="label" for="txtCategory">Category Name</label>
         <input type="text"

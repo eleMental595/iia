@@ -10,17 +10,17 @@ namespace iia.contracts.Models {
         [Column("product_id")]
         public int Id { get; set; }
         [Column("name")]
-        public string Product_Name { get; set; }
+        public string ProductName { get; set; }
         [Column("name_arabic")]
-        public string Name_Arabic { get; set; }
+        public string NameArabic { get; set; }
         [Column("unit")]
         public string Unit { get; set; }
         [Column("selling_price")]
-        public double Selling_price { get; set; }
+        public double SellingPrice { get; set; }
         [Column("cost")]
         public double Cost { get; set; }
         [Column("expiry_date")]
-        public DateTime Expiry_Date { get; set; }
+        public Int16 ExpiryDate { get; set; }
         [Column("batch")]
         public string Batch { get; set; }
         [Column("category")]
