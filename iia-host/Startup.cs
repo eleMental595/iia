@@ -1,8 +1,15 @@
+using System;
+using System.IO;
+using System.Text;
 using iia.CategoryService;
 using iia.contracts.interfaces;
+using iia.contracts.Models;
 using iia.DataService;
+using iia.middlewares;
+using iia.ProductService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -10,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.EntityFrameworkCore.Extensions;
+using Newtonsoft.Json;
 
 namespace iia_host
 {
@@ -33,6 +41,8 @@ namespace iia_host
             services.AddTransient<DbContext, DataContext>();
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ExceptionHandler, ExceptionHandler>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -58,6 +68,8 @@ namespace iia_host
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            app.RegisterMiddlewares();
 
             app.UseMvc(routes =>
             {

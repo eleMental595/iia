@@ -1323,6 +1323,21 @@
         "runtime": {
           "bin/placeholder/iia.contracts.dll": {}
         }
+      },
+      "iia.DataService/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.2.6",
+          "MySql.Data.EntityFrameworkCore": "8.0.17",
+          "iia.contracts": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/iia.DataService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/iia.DataService.dll": {}
+        }
       }
     }
   },
@@ -1646,7 +1661,6 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -1859,7 +1873,6 @@
       "path": "runtime.native.system.security.cryptography/4.0.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -3609,7 +3622,6 @@
       "path": "system.reflection.typeextensions/4.1.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5077,14 +5089,17 @@
       "type": "project",
       "path": "../../iia.contracts/iia.contracts.csproj",
       "msbuildProject": "../../iia.contracts/iia.contracts.csproj"
+    },
+    "iia.DataService/1.0.0": {
+      "type": "project",
+      "path": "../iia.DataService/iia.DataService.csproj",
+      "msbuildProject": "../iia.DataService/iia.DataService.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Microsoft.EntityFrameworkCore >= 2.2.6",
-      "MySql.Data.EntityFrameworkCore >= 8.0.17",
       "NETStandard.Library >= 2.0.3",
-      "iia.contracts >= 1.0.0"
+      "iia.DataService >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5094,11 +5109,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj",
-      "projectName": "iia.DataService",
-      "projectPath": "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj",
+      "projectUniqueName": "/home/ameya/Projects/iia/iia/services/iia.ProductService/iia.ProductService.csproj",
+      "projectName": "iia.ProductService",
+      "projectPath": "/home/ameya/Projects/iia/iia/services/iia.ProductService/iia.ProductService.csproj",
       "packagesPath": "/home/ameya/.nuget/packages/",
-      "outputPath": "/home/ameya/Projects/iia/iia/services/iia.DataService/obj/",
+      "outputPath": "/home/ameya/Projects/iia/iia/services/iia.ProductService/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -5115,8 +5130,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj": {
-              "projectPath": "/home/ameya/Projects/iia/iia/iia.contracts/iia.contracts.csproj"
+            "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj": {
+              "projectPath": "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj"
             }
           }
         }
@@ -5130,14 +5145,6 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "[2.2.6, )"
-          },
-          "MySql.Data.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "[8.0.17, )"
-          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
