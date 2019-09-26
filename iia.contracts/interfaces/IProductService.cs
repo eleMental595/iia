@@ -10,9 +10,9 @@ namespace iia.contracts.interfaces
     {
         Task<List<Products>> GetProductsAsync();
 
-        Task<Products> AddProduct(ProductRequest productRequest);
+        Task<Products> AddProduct(Products productRequest);
 
-        Task<Products> UpdateProduct(ProductRequest productRequest);
+        Task<Products> UpdateProduct(Products productRequest);
 
         Task DeleteProduct(int productId);
 
