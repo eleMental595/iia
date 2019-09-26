@@ -1,12 +1,12 @@
 <h1>vendors</h1>
 
 <p>This component provides the vendors details.</p>
-<input id="createBtn" class="btn btn-addVendor" type="button" value="Add new Vendor" *ngIf="!loadComponent" (click)="addVendor()" />
+<input id="createBtn" class="btn btn-info" type="button" value="Add new Vendor" *ngIf="!loadComponent" (click)="addVendor()" />
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 <div>
-  <table class='table table-striped' *ngIf="forecasts">
-    <thead>
+  <table class='table'>
+    <thead class="thead-light">
       <tr>
         <th>Vendors id</th>
         <th>Name (C)</th>
@@ -28,7 +28,11 @@
 </div>
 <div class="popup-wrapper" *ngIf="loadComponent">
   <div class="child-component">
-
+    <div class="field field-cross-btn">
+      <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <form #f="ngForm"
           (ngSubmit)="onSubmit(f.value)"
           class="form-ChildComponent">
@@ -69,14 +73,8 @@
                name="Contact Number" ngModel>
       </div>
       <div class="field-button">
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="btn" (click)="onCancel()"> Cancel </button>
+        <button type="submit" class="btn btn-success btn-sm btn-block">{{ btnCreate ? 'Create' : 'Update' }}</button>
       </div>
     </form>
   </div>
 </div>
-
-
-
-
-

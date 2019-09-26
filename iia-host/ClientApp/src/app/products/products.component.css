@@ -1,19 +1,6 @@
 body {
 }
 
-.btn {
-  float: right;
-  display: block;
-  border-radius: 20px;
-  background-color: #f2f2f2;
-  margin-left: 5px;
-}
-
-.btn-addproduct {
-  background-color: #f2f2f2;
-  margin-bottom: 10px;
-}
-
 .popup-wrapper {
   position: fixed;
   z-index: 1000;
@@ -28,10 +15,11 @@ body {
 }
 
 .child-component {
-  background: #fff;
+  background: #f8f6f6;
   padding: 16px;
   width: 400px;
   box-shadow: 2px 2px 10px -2px;
+  border-radius: 15px;
 }
 
 .form-ChildComponent {
@@ -49,9 +37,21 @@ body {
   justify-content: space-between;
 }
 
+.field-cross-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
 .label {
   font-weight: bold;
   flex: 1;
+}
+
+tr:hover {
+  background-color: #ccc !important;
+  cursor: pointer;
 }
 
 input, select {
@@ -61,3 +61,4 @@ input, select {
 .check-box {
   align-self: center;
 }
+

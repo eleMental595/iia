@@ -1,12 +1,14 @@
 <h1>Categories</h1>
 
 <p>This component provides categories along with there Vat%.</p>
-<input id="createBtn" class="btn btn-addCategory" type="button" value="Add new category" *ngIf="!loadComponent" (click)="addCategory()" />
+<div class="wrapper-create-btn">
+  <input id="createBtn" class="btn btn-info" type="button" value="Add new category" [disabled]="loadComponent" (click)="addCategory()" />
+</div>
 
 <p *ngIf="!categories"><em>Loading...</em></p>
-<div>
-  <table class='table table-striped' *ngIf="categories">
-    <thead>
+<div class="categories-table">
+  <table class='table'>
+    <thead class="thead-light">
       <tr>
         <th>Category Name</th>
         <th>Vat % (C)</th>
@@ -22,10 +24,12 @@
   </table>
 </div>
 
-<div class="popup-wrapper" *ngIf="loadComponent">  
+<div class="popup-wrapper" *ngIf="loadComponent">
   <div class="child-component">
-    <div class="field field-cross-image">
-      <img class="cross-img" src=".../../assets/images/crossImage.PNG" (click)="onCancel()" />
+    <div class="field field-cross-btn">
+      <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <form #f="ngForm"
           (ngSubmit)="onSubmit(f.value)"
@@ -48,8 +52,30 @@
                placeholder=" ex: 5%"
                name="vat" ngModel>
       </div>
+      <div>
+        <button type="submit" class="btn btn-success btn-sm btn-block">{{ btnCreate ? 'Create' : 'Update' }}</button>
+        <button type="button" class="btn btn-danger btn-sm btn-block" *ngIf="!btnCreate" (click)="deleteCategory($event, model)">Delete</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="popup-wrapper" *ngIf="loadDeletePopup">
+  <div class="child-component">
+    <div class="field field-cross-image">
+      <button type="button" class="close" aria-label="Close" (click)="onCancelDeletePopup()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form #f="ngForm"
+          (ngSubmit)="onDelete(f.value)"
+          class="form-ChildComponent">
+      <div>
+        <label class="label"> Are you sure to delete this record ? This is an hard delete. Please confirm below </label>
+      </div>
       <div class="field-button">
-        <button type="submit" class="btn">{{ btnCreate ? 'Create' : 'Update' }}</button>
+        <button type="submit" class="btn btn-success btn-sm btn-lg btn-block">Yes</button>
+        <button type="button" class="btn btn-danger btn-sm btn-lg btn-block" (click)="onCancelDeletePopup()">No</button>
       </div>
     </form>
   </div>

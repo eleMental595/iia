@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Category, CategoriesResponse, CategoryResponse } from '../shared/shared.config';
+import { ApiResponse, Category, CategoriesResponse, CategoryResponse } from '../shared/shared.config';
 
 @Component({
   selector: 'app-categories',
@@ -8,27 +8,26 @@ import { Category, CategoriesResponse, CategoryResponse } from '../shared/shared
   styleUrls: ['./categories.component.css']
 
 })
-export class CategoriesComponent{
+export class CategoriesComponent {
 
   public categories: Category[];
   public category: Category;
   public model: Category;
   public btnCreate: boolean;
 
-  public loadComponent = false;  
+  public loadComponent = false;
+  public loadDeletePopup = false;
 
-  private _http: HttpClient;
   private _baseUrl: string;
   private _url: string;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this._http = http;
+  constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this._baseUrl = baseUrl;
     this.getCategories();
   }
 
   getCategories() {
-   this._http.get<CategoriesResponse>(this._baseUrl + 'api/Category').subscribe(result => {
+    this._http.get<CategoriesResponse>(this._baseUrl + 'api/Category').subscribe(result => {
       this.categories = result.data;
     }, error => console.error(error));
   }
@@ -36,26 +35,52 @@ export class CategoriesComponent{
   addCategory() {
     this.btnCreate = true;
     this.emptyModel();
-    this.loadComponent = !this.loadComponent;    
+    this.loadComponent = !this.loadComponent;
   }
 
   onSubmit(form: any): void {
     console.log('you submitted value:', form);
     this._url = this._baseUrl + 'api/Category';
-    if (!this.btnCreate) {
-      
+    if (this.btnCreate) {
+      this._http.post<CategoryResponse>(this._url, form).subscribe(result => {
+        this.category = result.data;
+        this.getCategories();        
+      }, error => console.error(error)); 
     }
-    this._http.post<CategoryResponse>(this._url, form).subscribe(result => {      
-      this.category = result.data;
-      console.log(this.category);
-      this.getCategories();
-    }, error => console.error(error));    
-    this.loadComponent = !this.loadComponent; 
+    else {
+      this._http.put<CategoryResponse>(this._url, form).subscribe(result => {
+        this.category = result.data;
+        this.getCategories();
+      }, error => console.error(error)); 
+    }
+
+    this.loadComponent = !this.loadComponent;
+    
   }
 
-  onCancel(){
+  deleteCategory(event, category) {
+    this.model = category;
+    this.loadDeletePopup = true;
+    this.loadComponent = !this.loadComponent;
+    event.stopPropagation();
+  }
+
+  onDelete(form: Category): void {
+    this._url = this._baseUrl + 'api/Category/' + this.model.id;
+    this._http.delete<CategoryResponse>(this._url).subscribe(result => {
+      console.log(result.data);
+      this.getCategories();
+      this.loadDeletePopup = false;
+    }, error => console.error(error));
+  }
+
+  onCancel() {
     console.log("cancel btn clicked");
-  this.loadComponent = !this.loadComponent;
+    this.loadComponent = !this.loadComponent;
+  }
+
+  onCancelDeletePopup() {
+    this.loadDeletePopup = false;
   }
 
   editCategory(category) {

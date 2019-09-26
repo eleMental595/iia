@@ -40,8 +40,8 @@ namespace iia_host.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteCategory([FromQuery] int Id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory(int Id)
         {
             await _categoryService.DeleteCategory(Id);
             return Ok(string.Empty);

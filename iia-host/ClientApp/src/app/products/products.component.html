@@ -1,12 +1,12 @@
 <h1>Products</h1>
 
 <p>This component provides all the products.</p>
-<input id="createBtn" class="btn btn-addproduct" type="button" value="Add new product" *ngIf="!loadComponent" (click)="addproduct()" />
+<input id="createBtn" class="btn btn-info" type="button" value="Add new product" *ngIf="!loadComponent" (click)="addproduct()" />
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 <div>
-  <table class='table table-striped' *ngIf="forecasts">
-    <thead>
+  <table class='table' *ngIf="forecasts">
+    <thead class="thead-light">
       <tr>
         <th>Category</th>
         <th>Product id (C)</th>
@@ -36,6 +36,11 @@
 </div>
 <div class="popup-wrapper" *ngIf="loadComponent">
   <div class="child-component">
+    <div class="field field-cross-btn">
+      <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <form #f="ngForm"
           (ngSubmit)="onSubmit(f.value)"
           class="form-ChildComponent">
@@ -107,8 +112,7 @@
                name="Batch" ngModel>
       </div>
       <div class="field-button">
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="btn" (click)="onCancel()"> Cancel </button>
+        <button type="submit" class="btn btn btn-success btn-sm btn-block">Submit</button>
       </div>
     </form>
   </div>
