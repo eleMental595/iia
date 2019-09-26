@@ -1,10 +1,12 @@
 <h1>Products</h1>
 
 <p>This component provides all the products.</p>
-<input id="createBtn" class="btn btn-info" type="button" value="Add new product" *ngIf="!loadComponent" (click)="addproduct()" />
+<div class="wrapper-create-btn">
+  <input id="createBtn" class="btn btn-info" type="button" value="Add new product" [disabled]="loadComponent" (click)="addproduct()" />
+</div>
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
-<div>
+<div class="response-table">
   <table class='table' *ngIf="forecasts">
     <thead class="thead-light">
       <tr>
@@ -35,7 +37,7 @@
   </table>
 </div>
 <div class="popup-wrapper" *ngIf="loadComponent">
-  <div class="child-component">
+  <div id="popupComponent" class="child-component">
     <div class="field field-cross-btn">
       <button type="button" class="close" aria-label="Close" (click)="onCancel()">
         <span aria-hidden="true">&times;</span>
