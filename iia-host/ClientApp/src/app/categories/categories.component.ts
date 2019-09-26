@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ApiResponse, Category, CategoriesResponse, CategoryResponse } from '../shared/shared.config';
+import { ApiResponse, Category } from '../shared/shared.config';
 
 @Component({
   selector: 'app-categories',
@@ -27,7 +27,7 @@ export class CategoriesComponent {
   }
 
   getCategories() {
-    this._http.get<CategoriesResponse>(this._baseUrl + 'api/Category').subscribe(result => {
+    this._http.get<ApiResponse>(this._baseUrl + 'api/Category').subscribe(result => {
       this.categories = result.data;
     }, error => console.error(error));
   }
@@ -42,13 +42,13 @@ export class CategoriesComponent {
     console.log('you submitted value:', form);
     this._url = this._baseUrl + 'api/Category';
     if (this.btnCreate) {
-      this._http.post<CategoryResponse>(this._url, form).subscribe(result => {
+      this._http.post<ApiResponse>(this._url, form).subscribe(result => {
         this.category = result.data;
         this.getCategories();        
       }, error => console.error(error)); 
     }
     else {
-      this._http.put<CategoryResponse>(this._url, form).subscribe(result => {
+      this._http.put<ApiResponse>(this._url, form).subscribe(result => {
         this.category = result.data;
         this.getCategories();
       }, error => console.error(error)); 
@@ -67,7 +67,7 @@ export class CategoriesComponent {
 
   onDelete(form: Category): void {
     this._url = this._baseUrl + 'api/Category/' + this.model.id;
-    this._http.delete<CategoryResponse>(this._url).subscribe(result => {
+    this._http.delete<ApiResponse>(this._url).subscribe(result => {
       console.log(result.data);
       this.getCategories();
       this.loadDeletePopup = false;

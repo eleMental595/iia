@@ -1,7 +1,19 @@
 export interface Category {
-  id: number
+  id: number;
   category_Name: string;
   vat: string;
+}
+
+export interface Product {
+  id: number;
+  category: string;
+  product_Name: string;
+  name_Arabic: string;
+  unit: string;
+  selling_price: number;
+  cost: number;
+  expiry_Date: Date;
+  batch: string;
 }
 
 export enum Status {
@@ -14,12 +26,5 @@ export interface ApiResponse {
   status: Status;
 }
 
-export interface CategoriesResponse {
-  data: Category[];
-}
-
-export interface CategoryResponse {
-  data: Category;
-}
 
 export const Unit: Array<string> = ["BOX", "PCS", "ROLL", "LITER", "METER", "PACKET"];

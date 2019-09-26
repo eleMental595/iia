@@ -57,29 +57,29 @@
         </select>
       </div>
       <div class="field">
-        <label class="label" for="txtproduct id">product id</label>
+        <label class="label" for="txtproduct id">Product id</label>
         <input type="text"
-               id="txtproduct id"
+               id="txtproductId"
                placeholder=""
-               name="Product id" ngModel>
+               name="id" ngModel>
       </div>
       <div class="field">
         <label class="label" for="txtName">Name</label>
         <input type="text"
                id="txtName"
                placeholder=""
-               name="Name" ngModel>
+               name="product_Name" ngModel>
       </div>
       <div class="field">
         <label class="label" for="txtName in Arabic">Name in Arabic</label>
         <input type="text"
-               id="txtName in Arabic"
+               id="txtNameInArabic"
                placeholder=""
-               name="Name in Arabic" ngModel>
+               name="name_Arabic" ngModel>
       </div>
       <div class="field">
         <label class="label" for="txtUnit">Unit</label>
-        <select id="txtUnit" [(ngModel)]="selectedUnit" name="Unit">
+        <select id="txtUnit" [(ngModel)]="selectedUnit" name="unit">
           <option style="display:none">
           <option [value]="o" *ngFor="let o of unit">
             {{o}}
@@ -91,19 +91,19 @@
         <input type="text"
                id="txtCost"
                placeholder=""
-               name="Cost" ngModel>
+               name="cost" ngModel>
       </div>
       <div class="field">
         <label class="label" for="txtSellingPrice">Selling Price</label>
         <input type="text"
                id="txtSellingPrice"
                placeholder=""
-               name="SellingPrice" ngModel>
+               name="sellingPrice" ngModel>
       </div>
       <div class="field">
         <label class="label" for="txtExpiryDate">Expiry date</label>
         <div>
-          <input class="check-box" type="checkbox" name="ExpiryDate" [(ngModel)]="loadBatchEntry">
+          <input class="check-box" type="checkbox" name="expiryDate" [(ngModel)]="loadBatchEntry">
         </div>
       </div>
       <div class="field" *ngIf="loadBatchEntry">
@@ -111,7 +111,7 @@
         <input type="text"
                id="txtBatch"
                placeholder=""
-               name="Batch" ngModel>
+               name="batch" ngModel>
       </div>
       <div class="field-button">
         <button type="submit" class="btn btn btn-success btn-sm btn-block">Submit</button>
