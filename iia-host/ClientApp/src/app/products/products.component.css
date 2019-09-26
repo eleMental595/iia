@@ -1,62 +1,6 @@
 body {
 }
 
-.popup-wrapper {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.child-component {
-  background: #f8f6f6;
-  padding: 16px;
-  width: 400px;
-  box-shadow: 2px 2px 10px -2px;
-  border-radius: 15px;
-}
-
-.form-ChildComponent {
-  display: flex;
-  flex-direction: column;
-}
-
-.field {
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.field-button {
-  display: block;
-  justify-content: space-between;
-}
-
-.field-cross-btn {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: -10px;
-  margin-bottom: 20px;
-}
-
-.label {
-  font-weight: bold;
-  flex: 1;
-}
-
-tr:hover {
-  background-color: #ccc !important;
-  cursor: pointer;
-}
-
-input, select {
-  flex: 1 1 5%;
-}
 
 .check-box {
   align-self: center;
