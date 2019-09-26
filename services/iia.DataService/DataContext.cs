@@ -11,7 +11,7 @@ namespace iia.DataService
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("Server=localhost;Port=3306;Database=iiadev;User=root;Password=root123");
+            optionsBuilder.UseMySQL("Server=localhost;Port=3306;Database=iiadev;User=admin;Password=eleMental595@");
             base.OnConfiguring(optionsBuilder);
         }
 

@@ -25,5 +25,27 @@ namespace iia_host.Controllers
             var result = await _productService.GetProductsAsync();
             return Ok(result);
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddProduct([FromBody] Products request)
+        {
+            var result = await _productService.AddProduct(request);
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProducts([FromBody] Products request)
+        {
+            var result = await _productService.UpdateProduct(request);
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int Id)
+        {
+            await _productService.DeleteProduct(Id);
+            return Ok(string.Empty);
+        }
     }
 }
