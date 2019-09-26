@@ -6,6 +6,7 @@ namespace iia.DataService
     public class DataContext : DbContext
     {
         public DbSet<Categories> Categories { get; set; }
+        public DbSet<Products> Products { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

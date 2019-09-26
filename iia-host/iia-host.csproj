@@ -16,6 +16,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="NewtonSoft.Json" Version="12.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\iia.contracts\iia.contracts.csproj" />
     <ProjectReference Include="..\services\iia.CategoryService\iia.CategoryService.csproj" />
+    <ProjectReference Include="..\services\iia.ProductService\iia.ProductService.csproj" />
     <ProjectReference Include="..\services\iia.DataService\iia.DataService.csproj" />
   </ItemGroup>
 
