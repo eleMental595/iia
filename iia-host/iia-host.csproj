@@ -36,6 +36,7 @@
     <ProjectReference Include="..\iia.contracts\iia.contracts.csproj" />
     <ProjectReference Include="..\services\iia.CategoryService\iia.CategoryService.csproj" />
     <ProjectReference Include="..\services\iia.ProductService\iia.ProductService.csproj" />
+    <ProjectReference Include="..\services\iia.CustomerService\iia.CustomerService.csproj" />
     <ProjectReference Include="..\services\iia.DataService\iia.DataService.csproj" />
   </ItemGroup>
 

@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iia.CategoryService", "serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iia.ProductService", "services\iia.ProductService\iia.ProductService.csproj", "{52F44E20-CF6B-4659-80A3-AFE501C43B21}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iia.CustomerService", "services\iia.CustomerService\iia.CustomerService.csproj", "{52F44E20-CF6B-4659-80A3-AFE501C43B21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
