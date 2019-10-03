@@ -1,0 +1,14 @@
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/bin/Debug/netstandard2.0/iia.CustomerService.deps.json
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/bin/Debug/netstandard2.0/iia.CustomerService.dll
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/bin/Debug/netstandard2.0/iia.CustomerService.pdb
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/bin/Debug/netstandard2.0/iia.contracts.dll
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/bin/Debug/netstandard2.0/iia.DataService.dll
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/bin/Debug/netstandard2.0/iia.DataService.pdb
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/bin/Debug/netstandard2.0/iia.contracts.pdb
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.csprojAssemblyReference.cache
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.csproj.CoreCompileInputs.cache
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.AssemblyInfoInputs.cache
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.AssemblyInfo.cs
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.csproj.CopyComplete
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.dll
+/home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.pdb
