@@ -1,2 +1,11 @@
-﻿body {
+body {
+}
+
+.child-component {
+  width: 1000px !important;
+}
+
+.inner-child-component {
+  width: 400px !important;
+  margin: auto;
 }

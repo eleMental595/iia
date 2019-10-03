@@ -1,0 +1,138 @@
+<h1>Purchase Entry</h1>
+
+<p>This component provides purchases and there invoices.</p>
+<div class="wrapper-create-btn">
+  <input id="createBtn" class="btn btn-info" type="button" value="Add new purchase" [disabled]="loadPurchaseEntryForm" (click)="addPurchaseEntryForm()" />
+</div>
+
+
+<p *ngIf="!categories"><em>Loading...</em></p>
+<div class="response-table">
+  <table class='table'>
+    <thead class="thead-light">
+      <tr>
+        <th>Vendor</th>
+        <th>Invoice</th>
+        <th>Total amount</th>
+        <th>Received By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let purchase of purchases">
+        <th hidden>{{purchase.id}}</th>
+        <td>{{ purchase.vendorName }}</td>
+        <td>{{ purchase.totalAmount }}</td>
+        <td>{{ purchase.receivedBy }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="popup-wrapper" *ngIf="loadPurchaseEntryForm">
+  <div class="child-component">
+    <div class="field field-cross-btn">
+      <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form [formGroup]="ltsForm" (submit)="onSubmit()" class="form-ChildComponent">
+      <div class="inner-child-component">
+        <div hidden class="field">
+          <input formControlName="purchaseId" id="purchaseId" />
+        </div>
+        <div class="field">
+          <label class="label" for="vendorId">Vendor Id</label>
+          <select class="input-box" formControlName="vendorId" id="vendorId">
+            <option style="display:none">
+            <option [value]="vendor.id" *ngFor="let vendor of vendors">
+              {{vendor.id}}
+            </option>
+          </select>
+          <!--<div *ngIf="vendorId.touched && vendorId.hasError('required')">Required</div>-->
+        </div>
+        <div class="field">
+          <label class="label" for="vendorName">VendorName</label>
+          <input formControlName="vendorName" id="vendorName" />
+          <!--<div *ngIf="vendorName.touched && vendorName.hasError('required')">Invalid</div>-->
+        </div>
+        <div class="field">
+          <label class="label" for="invoice">Invoice number</label>
+          <input formControlName="invoice" id="invoice" />
+          <!--<div *ngIf="invoice.touched && invoice.hasError('required')">Invalid</div>-->
+        </div>
+        <div class="field">
+          <label class="label" for="netAmount">Net Amount</label>
+          <input formControlName="netAmount" id="netAmount" />
+          <!--<div *ngIf="netAmount.touched && netAmount.hasError('required')">Invalid</div>-->
+        </div>
+        <div class="field">
+          <label class="label" for="vatAmount">Vat Amount</label>
+          <input formControlName="vatAmount" id="vatAmount" />
+          <!--<div *ngIf="vatAmount.touched && vatAmount.hasError('required')">Invalid</div>-->
+        </div>
+        <div class="field">
+          <label class="label" for="totalAmount">Total Amount</label>
+          <input formControlName="totalAmount" id="totalAmount" />
+          <!--<div *ngIf="totalAmount.touched && totalAmount.hasError('required')">Invalid</div>-->
+        </div>
+        <div class="field">
+          <label class="label" for="receivedBy">Received By</label>
+          <input formControlName="receivedBy" id="receivedBy" />
+          <!--<div *ngIf="receivedBy.touched && receivedBy.hasError('required')">Invalid</div>-->
+        </div>
+      </div>
+
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Product id</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Qty</th>
+            <th>Unit price with Tax</th>
+            <th>HasExpiryDate</th>
+            <th>expiryDate</th>
+            <th>Batch</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let control of ltsForm.get('products').value; let i=index">
+          <tr [formGroup]="control">
+            <td>
+              <input class="form-control" type="text" formControlName="product" />
+            </td>
+            <td>
+              <input class="form-control" type="text" formControlName="description" />
+            </td>
+            <td>
+              <input class="form-control" type="text" formControlName="cost" />
+            </td>
+            <td>
+              <input class="form-control" type="text" formControlName="quantity" />
+            </td>
+            <td>
+              <input class="form-control" type="text" formControlName="unitPrice" />
+            </td>
+            <td>
+              <input class="form-control" type="text" formControlName="hasExpiryDate" />
+            </td>
+            <td>
+              <input class="form-control" type="text" formControlName="expiryDate" />
+            </td>
+            <td>
+              <input class="form-control" type="text" formControlName="batch" />
+            </td>
+            <td>
+              <button class="btn btn-default" type="button" (click)="addProduct()">Add</button>
+            </td>
+            <td>
+              <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <button type="submit" class="btn btn-success btn-sm btn-block">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
