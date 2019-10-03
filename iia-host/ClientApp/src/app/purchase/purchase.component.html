@@ -21,6 +21,7 @@
       <tr *ngFor="let purchase of purchases">
         <th hidden>{{purchase.id}}</th>
         <td>{{ purchase.vendorName }}</td>
+        <td>{{ purchase.invoiceNumber }}</td>
         <td>{{ purchase.totalAmount }}</td>
         <td>{{ purchase.receivedBy }}</td>
       </tr>
@@ -42,12 +43,13 @@
         </div>
         <div class="field">
           <label class="label" for="vendorId">Vendor Id</label>
-          <select class="input-box" formControlName="vendorId" id="vendorId">
+          <input formControlName="vendorId" id="vendorId" />
+          <!--<select class="input-box" formControlName="vendorId" id="vendorId">
             <option style="display:none">
             <option [value]="vendor.id" *ngFor="let vendor of vendors">
               {{vendor.id}}
             </option>
-          </select>
+          </select>-->
           <!--<div *ngIf="vendorId.touched && vendorId.hasError('required')">Required</div>-->
         </div>
         <div class="field">
@@ -56,8 +58,8 @@
           <!--<div *ngIf="vendorName.touched && vendorName.hasError('required')">Invalid</div>-->
         </div>
         <div class="field">
-          <label class="label" for="invoice">Invoice number</label>
-          <input formControlName="invoice" id="invoice" />
+          <label class="label" for="invoiceNumber">Invoice number</label>
+          <input formControlName="invoiceNumber" id="invoiceNumber" />
           <!--<div *ngIf="invoice.touched && invoice.hasError('required')">Invalid</div>-->
         </div>
         <div class="field">
@@ -76,8 +78,8 @@
           <!--<div *ngIf="totalAmount.touched && totalAmount.hasError('required')">Invalid</div>-->
         </div>
         <div class="field">
-          <label class="label" for="receivedBy">Received By</label>
-          <input formControlName="receivedBy" id="receivedBy" />
+          <label class="label" for="recievedBy">Recieved By</label>
+          <input formControlName="recievedBy" id="recievedBy" />
           <!--<div *ngIf="receivedBy.touched && receivedBy.hasError('required')">Invalid</div>-->
         </div>
       </div>
@@ -95,7 +97,7 @@
             <th>Batch</th>
           </tr>
         </thead>
-        <tbody *ngFor="let control of ltsForm.get('products').value; let i=index">
+        <tbody formArrayName="purchaseProducts" *ngFor="let control of products.controls; let i=index" >
           <tr [formGroup]="control">
             <td>
               <input class="form-control" type="text" formControlName="product" />
@@ -133,6 +135,9 @@
       <div>
         <button type="submit" class="btn btn-success btn-sm btn-block">Submit</button>
       </div>
+      <!--<button type="button" onclick="printJS('ltsForm', 'html')">
+        Print Form
+      </button>-->
     </form>
   </div>
 </div>

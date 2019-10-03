@@ -7,6 +7,7 @@ using iia.contracts.Models;
 using iia.DataService;
 using iia.middlewares;
 using iia.ProductService;
+using iia.PurchaseService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,7 @@ namespace iia_host
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IPurchaseService, PurchaseService>();
             services.AddTransient<ExceptionHandler, ExceptionHandler>();
 
             // In production, the Angular files will be served from this directory

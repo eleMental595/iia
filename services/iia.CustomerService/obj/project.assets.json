@@ -5103,35 +5103,37 @@
     ]
   },
   "packageFolders": {
-    "/home/ameya/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\sperni\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ameya/Projects/iia/iia/services/iia.CustomerService/iia.CustomerService.csproj",
+      "projectUniqueName": "C:\\Users\\sperni\\source\\repos\\Newiia\\iia\\services\\iia.CustomerService\\iia.CustomerService.csproj",
       "projectName": "iia.CustomerService",
-      "projectPath": "/home/ameya/Projects/iia/iia/services/iia.CustomerService/iia.CustomerService.csproj",
-      "packagesPath": "/home/ameya/.nuget/packages/",
-      "outputPath": "/home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/",
+      "projectPath": "C:\\Users\\sperni\\source\\repos\\Newiia\\iia\\services\\iia.CustomerService\\iia.CustomerService.csproj",
+      "packagesPath": "C:\\Users\\sperni\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sperni\\source\\repos\\Newiia\\iia\\services\\iia.CustomerService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/ameya/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\sperni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj": {
-              "projectPath": "/home/ameya/Projects/iia/iia/services/iia.DataService/iia.DataService.csproj"
+            "C:\\Users\\sperni\\source\\repos\\Newiia\\iia\\services\\iia.DataService\\iia.DataService.csproj": {
+              "projectPath": "C:\\Users\\sperni\\source\\repos\\Newiia\\iia\\services\\iia.DataService\\iia.DataService.csproj"
             }
           }
         }

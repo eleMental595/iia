@@ -1,6 +1,8 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Inject } from '@angular/core';
 import { Purchase, PurchaseEntry } from '../shared/shared.config';
-import { FormArray, FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormArray, FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { ApiResponse } from '../shared/shared.config';
 
 @Component({
   selector: 'app-purchase',
@@ -11,8 +13,7 @@ import { FormArray, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 @Injectable()
 export class PurchaseComponent implements OnInit {
 
-  ltsForm: FormGroup;
-  product: FormGroup;
+  ltsForm: FormGroup;  
 
   private fieldArray: Array<any> = [];
   private newAttribute: any = {};
@@ -22,10 +23,14 @@ export class PurchaseComponent implements OnInit {
 
   private loadPurchaseEntryForm = false;
 
-  get products() { return this.ltsForm.get('products'); }
+  get products() { return this.ltsForm.get('purchaseProducts') as FormArray;; }
 
-  constructor(private formBuilder: FormBuilder) {
+  private _baseUrl: string;
+  private _url: string;
 
+  constructor(private formBuilder: FormBuilder, private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this._baseUrl = baseUrl;
+    this.getPurchases();
   }
 
   ngOnInit() {
@@ -33,12 +38,12 @@ export class PurchaseComponent implements OnInit {
       purchaseId: [''],
       vendorId: [''],
       vendorName: [''],
-      invoice: [''],
+      invoiceNumber: [''],
       netAmount: [''],
       vatAmount: [''],
       totalAmount: [''],
-      receivedBy: [''],
-      products: this.formBuilder.array([this.createItem()])
+      recievedBy: [''],
+      purchaseProducts: this.formBuilder.array([this.createItem()])
     });
   }
 
@@ -59,8 +64,21 @@ export class PurchaseComponent implements OnInit {
     this.loadPurchaseEntryForm = !this.loadPurchaseEntryForm;
   }
 
+  getPurchases() {
+    this._http.get<ApiResponse>(this._baseUrl + 'api/Purchase').subscribe(result => {
+      this.purchases = result.data;
+    }, error => console.error(error));
+  }
+
+
   onSubmit() {
     console.log(this.ltsForm.value);
+    this._url = this._baseUrl + 'api/Purchase';
+
+    this._http.post<ApiResponse>(this._url, this.ltsForm.value).subscribe(result => {      
+      this.getPurchases();
+    }, error => console.error(error));
+
     this.loadPurchaseEntryForm = !this.loadPurchaseEntryForm;
   }
 
@@ -72,7 +90,7 @@ export class PurchaseComponent implements OnInit {
   }
 
   addProduct() {
-    this.products.value.push(this.createItem);
+    this.products.push(this.createItem());
   }
 
   deleteFieldValue(index: number) {

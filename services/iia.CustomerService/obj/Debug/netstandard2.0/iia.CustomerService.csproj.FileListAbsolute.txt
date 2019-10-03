@@ -12,3 +12,17 @@
 /home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.csproj.CopyComplete
 /home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.dll
 /home/ameya/Projects/iia/iia/services/iia.CustomerService/obj/Debug/netstandard2.0/iia.CustomerService.pdb
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\bin\Debug\netstandard2.0\iia.CustomerService.deps.json
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\bin\Debug\netstandard2.0\iia.CustomerService.dll
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\bin\Debug\netstandard2.0\iia.CustomerService.pdb
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\bin\Debug\netstandard2.0\iia.contracts.dll
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\bin\Debug\netstandard2.0\iia.DataService.dll
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\bin\Debug\netstandard2.0\iia.DataService.pdb
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\bin\Debug\netstandard2.0\iia.contracts.pdb
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\obj\Debug\netstandard2.0\iia.CustomerService.csprojAssemblyReference.cache
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\obj\Debug\netstandard2.0\iia.CustomerService.csproj.CoreCompileInputs.cache
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\obj\Debug\netstandard2.0\iia.CustomerService.AssemblyInfoInputs.cache
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\obj\Debug\netstandard2.0\iia.CustomerService.AssemblyInfo.cs
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\obj\Debug\netstandard2.0\iia.CustomerService.csproj.CopyComplete
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\obj\Debug\netstandard2.0\iia.CustomerService.dll
+C:\Users\sperni\source\repos\Newiia\iia\services\iia.CustomerService\obj\Debug\netstandard2.0\iia.CustomerService.pdb

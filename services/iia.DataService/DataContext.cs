@@ -8,7 +8,8 @@ namespace iia.DataService
         public DbSet<Categories> Categories { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
-
+        public DbSet<Purchase> Purchases { get; set; }
+        public DbSet<PurchaseProducts> PurchaseProducts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

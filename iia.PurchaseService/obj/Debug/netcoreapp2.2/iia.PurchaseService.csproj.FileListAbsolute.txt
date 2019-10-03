@@ -1,0 +1,14 @@
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\bin\Debug\netcoreapp2.2\iia.PurchaseService.deps.json
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\bin\Debug\netcoreapp2.2\iia.PurchaseService.dll
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\bin\Debug\netcoreapp2.2\iia.PurchaseService.pdb
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\bin\Debug\netcoreapp2.2\iia.contracts.dll
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\bin\Debug\netcoreapp2.2\iia.DataService.dll
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\bin\Debug\netcoreapp2.2\iia.contracts.pdb
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\bin\Debug\netcoreapp2.2\iia.DataService.pdb
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\obj\Debug\netcoreapp2.2\iia.PurchaseService.csprojAssemblyReference.cache
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\obj\Debug\netcoreapp2.2\iia.PurchaseService.csproj.CoreCompileInputs.cache
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\obj\Debug\netcoreapp2.2\iia.PurchaseService.AssemblyInfoInputs.cache
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\obj\Debug\netcoreapp2.2\iia.PurchaseService.AssemblyInfo.cs
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\obj\Debug\netcoreapp2.2\iia.PurchaseService.csproj.CopyComplete
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\obj\Debug\netcoreapp2.2\iia.PurchaseService.dll
+C:\Users\sperni\source\repos\Newiia\iia\iia.PurchaseService\obj\Debug\netcoreapp2.2\iia.PurchaseService.pdb
