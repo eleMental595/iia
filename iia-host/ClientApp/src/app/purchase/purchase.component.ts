@@ -19,9 +19,11 @@ export class PurchaseComponent implements OnInit {
   private newAttribute: any = {};
 
   public purchases: Purchase[];
+  public invoiceFormData: PurchaseEntry;
   public model: any = {};
 
   private loadPurchaseEntryForm = false;
+  private loadInvoiceForm = false;
 
   get products() { return this.ltsForm.get('purchaseProducts') as FormArray;; }
 
@@ -105,6 +107,22 @@ export class PurchaseComponent implements OnInit {
 
   save() {
     console.log(this.ltsForm.value);
+  }
+
+  showInvoice(id: number) {
+    this._url = this._baseUrl + 'api/Purchase/'+ id;
+
+    this._http.get<ApiResponse>(this._url).subscribe(result => {
+      this.invoiceFormData = result.data;
+      console.log(this.invoiceFormData); 
+    }, error => console.error(error));
+
+    this.loadInvoiceForm = !this.loadInvoiceForm;
+  }
+
+  onCancelInvoice() {
+    console.log("cancel btn clicked");
+    this.loadInvoiceForm = !this.loadInvoiceForm;
   }
 
 }

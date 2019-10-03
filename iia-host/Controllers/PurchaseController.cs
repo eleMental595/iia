@@ -26,6 +26,13 @@ namespace iia_host.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPurchaseById(int id)
+        {
+            var result = await _purchaseService.GetPurchaseByIdAsync(id);
+            return Ok(result);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> AddProduct([FromBody] PurchaseEntryRequest request)

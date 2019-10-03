@@ -1,6 +1,5 @@
 <h1>Purchase Entry</h1>
 
-<p>This component provides purchases and there invoices.</p>
 <div class="wrapper-create-btn">
   <input id="createBtn" class="btn btn-info" type="button" value="Add new purchase" [disabled]="loadPurchaseEntryForm" (click)="addPurchaseEntryForm()" />
 </div>
@@ -18,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let purchase of purchases">
+      <tr *ngFor="let purchase of purchases" (click)="showInvoice(purchase.id)">
         <th hidden>{{purchase.id}}</th>
         <td>{{ purchase.vendorName }}</td>
         <td>{{ purchase.invoiceNumber }}</td>
@@ -54,7 +53,7 @@
         </div>
         <div class="field">
           <label class="label" for="vendorName">VendorName</label>
-          <input formControlName="vendorName" id="vendorName" />
+          <input [disabled] formControlName="vendorName" id="vendorName" />
           <!--<div *ngIf="vendorName.touched && vendorName.hasError('required')">Invalid</div>-->
         </div>
         <div class="field">
@@ -97,7 +96,7 @@
             <th>Batch</th>
           </tr>
         </thead>
-        <tbody formArrayName="purchaseProducts" *ngFor="let control of products.controls; let i=index" >
+        <tbody formArrayName="purchaseProducts" *ngFor="let control of products.controls; let i=index">
           <tr [formGroup]="control">
             <td>
               <input class="form-control" type="text" formControlName="product" />
@@ -139,5 +138,73 @@
         Print Form
       </button>-->
     </form>
+  </div>
+</div>
+
+<div class="popup-wrapper" *ngIf="loadInvoiceForm">
+  <div class="child-component">
+    <div class="field field-cross-btn">
+      <button type="button" class="close" aria-label="Close" (click)="onCancelInvoice()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h1 style="background-color: red;"> Purchase Invoice</h1>
+    <article>
+      <address contenteditable>
+        <p>{{invoiceFormData.vendorName}}<br />{{invoiceFormData.vendorId}}</p>
+      </address>
+      <table class="meta">
+        <tr>
+          <th><span contenteditable>Invoice #</span></th>
+          <td><span contenteditable>{{invoiceFormData.invoiceNumber}}</span></td>
+        </tr>
+        <tr>
+          <th><span contenteditable>Date</span></th>
+          <td><span contenteditable>Oct 10, 2020</span></td>
+        </tr>
+        <tr>
+          <th><span contenteditable>Amount</span></th>
+          <td><span id="prefix" contenteditable>$</span><span>{{invoiceFormData.totalAmount}}</span></td>
+        </tr>
+      </table>
+      <table class="inventory">
+        <thead>
+          <tr>
+            <th><span contenteditable>Product Id</span></th>
+            <th><span contenteditable>Description</span></th>
+            <th><span contenteditable>Cost</span></th>
+            <th><span contenteditable>Quantity</span></th>
+            <th><span contenteditable>Price</span></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let pr of invoiceFormData.purchaseProducts; let i=index;">
+          <tr>
+            <td><a class="cut">-</a><span contenteditable>{{pr.id}}</span></td>
+            <td><span contenteditable>{{pr.description}}</span></td>
+            <td><span data-prefix>$</span><span contenteditable>{{pr.cost}}</span></td>
+            <td><span contenteditable>{{pr.quantity}}</span></td>
+            <td><span data-prefix>$</span><span>{{pr.unitPrice}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="balance">
+        <tr>
+          <th><span contenteditable>Net Amount</span></th>
+          <td><span data-prefix>$</span><span>{{invoiceFormData.netAmmount}}</span></td>
+        </tr>
+        <tr>
+          <th><span contenteditable>Vat Amount</span></th>
+          <td><span data-prefix>$</span><span contenteditable>{{invoiceFormData.vatAmount}}</span></td>
+        </tr>
+        <tr>
+          <th><span contenteditable>Discounts</span></th>
+          <td><span data-prefix>$</span><span contenteditable>0.00</span></td>
+        </tr>
+        <tr>
+          <th><span contenteditable>Total Amount</span></th>
+          <td><span data-prefix>$</span><span>{{invoiceFormData.totalAmount}}</span></td>
+        </tr>
+      </table>
+    </article>
   </div>
 </div>

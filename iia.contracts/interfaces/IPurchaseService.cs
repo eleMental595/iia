@@ -12,5 +12,7 @@ namespace iia.contracts.interfaces
 
         Task<Purchase> AddPurchaseEntryAsync(PurchaseEntryRequest productRequest);
 
+        Task<PurchaseEntryRequest> GetPurchaseByIdAsync(int id);
+
     }
 }

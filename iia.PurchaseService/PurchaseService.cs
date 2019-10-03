@@ -63,5 +63,38 @@ namespace iia.PurchaseService
             
             return result.Entity;
         }
+
+        public async Task<PurchaseEntryRequest> GetPurchaseByIdAsync(int id)
+        {
+            
+            var results = await GetPurchasesAsync();
+            var purchase = results.Find(x => x.Id == id);
+
+            var results2 = await GetPurchaseProductsAsync();
+            var purchaseProducts = results2.FindAll(x=>x.PurchaseId == id);
+
+            var purchaseResponse = new PurchaseEntryRequest()
+            {
+                Id = purchase.Id,
+                VendorId = purchase.VendorId,
+                VendorName = purchase.VendorName,
+                InvoiceNumber = purchase.InvoiceNumber,
+                NetAmount = purchase.NetAmount,
+                VatAmount = purchase.VatAmount,
+                TotalAmount = purchase.TotalAmount,
+                RecievedBy = purchase.RecievedBy,
+                PurchaseProducts = purchaseProducts
+            };
+
+            return purchaseResponse;
+        }
+
+        private async Task<List<PurchaseProducts>> GetPurchaseProductsAsync()
+        {
+            return await _dataService.GetResults<List<PurchaseProducts>>(async (dataContext) =>
+            {
+                return await dataContext.PurchaseProducts.ToListAsync();
+            });
+        }
     }
 }

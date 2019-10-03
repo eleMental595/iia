@@ -46,4 +46,16 @@ export interface PurchaseEntry {
   vatAmount: number;
   totalAmount: number;
   receivedBy: string;
+  purchaseProducts: PurchaseProduct[]
+}
+
+export interface PurchaseProduct {
+  id: '',
+  description: '',
+  cost: '',
+  quantity: '',
+  unitPrice: '',
+  hasExpiryDate: '',
+  expiryDate: '',
+  batch: ''
 }
